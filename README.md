@@ -1,5 +1,9 @@
 # cimgui-pack
 
+### This repository is deprecated, development continues in the [CImGui.jl](https://github.com/Gnimuc/CImGui.jl) monorepo.
+
+---
+
 This is a meta-repo containing submodules of the C bindings for Dear ImGui and
 related packages:
 - [cimgui](https://github.com/cimgui/cimgui)
