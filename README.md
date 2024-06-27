@@ -1,9 +1,5 @@
 # cimgui-pack
 
-### This repository is deprecated, development continues in the [CImGui.jl](https://github.com/Gnimuc/CImGui.jl) monorepo.
-
----
-
 This is a meta-repo containing submodules of the C bindings for Dear ImGui and
 related packages:
 - [cimgui](https://github.com/cimgui/cimgui)
@@ -12,7 +8,13 @@ related packages:
 
 The versions have been picked so that they're all compatible with each other,
 i.e. matching the latest ImGui version. The currently supported ImGui version
-is: [*v1.89.4*](https://github.com/ocornut/imgui/releases/tag/v1.89.4).
+is: [*v1.90.8*](https://github.com/ocornut/imgui/releases/tag/v1.90.8).
+
+You can build the resulting shared library locally with:
+```julia-repl
+# $ julia --project=.
+julia> include("cimgui-pack/build.jl")
+```
 
 This repo is used directly by:
 - [CImGuiPack](https://github.com/JuliaPackaging/Yggdrasil/tree/master/C/CImGuiPack)
