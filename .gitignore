@@ -1,1 +1,6 @@
 build
+*Manifest.toml
+test_engine/ImGuiTestEngine
+test_engine/config.toml
+test_engine/jlImGuiTestEngine-report.txt
+test_engine/src/overrides.h
