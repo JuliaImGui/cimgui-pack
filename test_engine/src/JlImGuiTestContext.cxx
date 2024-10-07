@@ -766,10 +766,10 @@ struct JlImGuiTestContext: public Wrapper {
     t.method("PerfCapture", [](ImGuiTestContext* a, const char * arg0)->void { a->PerfCapture(arg0); });
     t.method("PerfCapture", [](ImGuiTestContext* a, const char * arg0, const char * arg1)->void { a->PerfCapture(arg0, arg1); });
 
-    DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ForeignWindowsUnhideAll() (" __HERE__ ")");
-    // signature to use in the veto list: void ImGuiTestContext::ForeignWindowsUnhideAll()
+    DEBUG_MSG("Adding wrapper for void ImGuiTestContext::_ForeignWindowsUnhideAll() (" __HERE__ ")");
+    // signature to use in the veto list: void ImGuiTestContext::_ForeignWindowsUnhideAll()
     // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:525:17
-    t.method("ForeignWindowsUnhideAll", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::ForeignWindowsUnhideAll));
+    t.method("_ForeignWindowsUnhideAll", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::_ForeignWindowsUnhideAll));
 
     DEBUG_MSG("Adding GenericVars methods  to provide read access to the field GenericVars (" __HERE__ ")");
     // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:216:29

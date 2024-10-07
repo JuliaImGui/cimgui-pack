@@ -29,8 +29,8 @@ class JlImGuiTestInfoTask;
 class JlImGuiTestGatherTask;
 class JlImGuiTestFindByLabelTask;
 class JlImGuiTestInput;
-class JlImGuiTestInputs;
 class JlImVec2;
+class JlImGuiTestInputs;
 class JlImGuiTestContext;
 class JlImGuiPerfTool;
 class JlImGuiCaptureToolUI;
@@ -65,8 +65,8 @@ std::shared_ptr<Wrapper> newJlImGuiTestInfoTask(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlImGuiTestGatherTask(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlImGuiTestFindByLabelTask(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlImGuiTestInput(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlImGuiTestInputs(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlImVec2(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlImGuiTestInputs(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlImGuiTestContext(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlImGuiPerfTool(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlImGuiCaptureToolUI(jlcxx::Module&);
@@ -136,8 +136,8 @@ throw_if_version_incompatibility();
     std::shared_ptr<Wrapper>(newJlImGuiTestGatherTask(jlModule)),
     std::shared_ptr<Wrapper>(newJlImGuiTestFindByLabelTask(jlModule)),
     std::shared_ptr<Wrapper>(newJlImGuiTestInput(jlModule)),
-    std::shared_ptr<Wrapper>(newJlImGuiTestInputs(jlModule)),
     std::shared_ptr<Wrapper>(newJlImVec2(jlModule)),
+    std::shared_ptr<Wrapper>(newJlImGuiTestInputs(jlModule)),
     std::shared_ptr<Wrapper>(newJlImGuiTestContext(jlModule)),
     std::shared_ptr<Wrapper>(newJlImGuiPerfTool(jlModule)),
     std::shared_ptr<Wrapper>(newJlImGuiCaptureToolUI(jlModule)),
@@ -263,6 +263,8 @@ throw_if_version_incompatibility();
   jlModule.set_const("ImGuiTestInputType_Key", ImGuiTestInputType_Key);
   jlModule.set_const("ImGuiTestInputType_Char", ImGuiTestInputType_Char);
   jlModule.set_const("ImGuiTestInputType_ViewportFocus", ImGuiTestInputType_ViewportFocus);
+  jlModule.set_const("ImGuiTestInputType_ViewportSetPos", ImGuiTestInputType_ViewportSetPos);
+  jlModule.set_const("ImGuiTestInputType_ViewportSetSize", ImGuiTestInputType_ViewportSetSize);
   jlModule.set_const("ImGuiTestInputType_ViewportClose", ImGuiTestInputType_ViewportClose);
 
   DEBUG_MSG("Adding wrapper for enum ImGuiTestAction (" __HERE__ ")");
@@ -297,7 +299,7 @@ throw_if_version_incompatibility();
   jlModule.set_const("ImGuiTestOpFlags_MoveToEdgeD", ImGuiTestOpFlags_MoveToEdgeD);
 
   DEBUG_MSG("Adding wrapper for enum ImGuiInputSource (" __HERE__ ")");
-  // defined in ../cimgui/imgui/imgui_internal.h:1399:6
+  // defined in ../cimgui/imgui/imgui_internal.h:1391:6
   jlModule.add_bits<ImGuiInputSource>("ImGuiInputSource", jlcxx::julia_type("CppEnum"));
   jlModule.set_const("ImGuiInputSource_None", ImGuiInputSource_None);
   jlModule.set_const("ImGuiInputSource_Mouse", ImGuiInputSource_Mouse);
