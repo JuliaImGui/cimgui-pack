@@ -17,7 +17,7 @@ struct JlImGuiTestInputs: public Wrapper {
 
   JlImGuiTestInputs(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type ImGuiTestInputs (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:116:8
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:137:8
     jlcxx::TypeWrapper<ImGuiTestInputs>  t = jlModule.add_type<ImGuiTestInputs>("ImGuiTestInputs");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<ImGuiTestInputs>>(new jlcxx::TypeWrapper<ImGuiTestInputs>(jlModule, t));
   }
@@ -27,13 +27,13 @@ struct JlImGuiTestInputs: public Wrapper {
     t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
 
     DEBUG_MSG("Adding MousePosValue methods  to provide read access to the field MousePosValue (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:118:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:139:33
     // signature to use in the veto list: ImGuiTestInputs::MousePosValue
     t.method("MousePosValue", [](const ImGuiTestInputs& a) -> const ImVec2& { return a.MousePosValue; });
     t.method("MousePosValue", [](ImGuiTestInputs& a) -> ImVec2& { return a.MousePosValue; });
     t.method("MousePosValue", [](const ImGuiTestInputs* a) -> const ImVec2& { return a->MousePosValue; });
     t.method("MousePosValue", [](ImGuiTestInputs* a) -> ImVec2& { return a->MousePosValue; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:118:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:139:33
     // signature to use in the veto list: ImGuiTestInputs::MousePosValue
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding MousePosValue! methods to provide write access to the field MousePosValue (" __HERE__ ")");
@@ -43,13 +43,13 @@ struct JlImGuiTestInputs: public Wrapper {
     t.method("MousePosValue!", [](ImGuiTestInputs* a, const ImVec2& val) -> ImVec2& { return a->MousePosValue = val; });
 
     DEBUG_MSG("Adding MouseWheel methods  to provide read access to the field MouseWheel (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:119:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:140:33
     // signature to use in the veto list: ImGuiTestInputs::MouseWheel
     t.method("MouseWheel", [](const ImGuiTestInputs& a) -> const ImVec2& { return a.MouseWheel; });
     t.method("MouseWheel", [](ImGuiTestInputs& a) -> ImVec2& { return a.MouseWheel; });
     t.method("MouseWheel", [](const ImGuiTestInputs* a) -> const ImVec2& { return a->MouseWheel; });
     t.method("MouseWheel", [](ImGuiTestInputs* a) -> ImVec2& { return a->MouseWheel; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:119:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:140:33
     // signature to use in the veto list: ImGuiTestInputs::MouseWheel
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding MouseWheel! methods to provide write access to the field MouseWheel (" __HERE__ ")");
@@ -59,13 +59,13 @@ struct JlImGuiTestInputs: public Wrapper {
     t.method("MouseWheel!", [](ImGuiTestInputs* a, const ImVec2& val) -> ImVec2& { return a->MouseWheel = val; });
 
     DEBUG_MSG("Adding MouseHoveredViewport methods  to provide read access to the field MouseHoveredViewport (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:120:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:141:33
     // signature to use in the veto list: ImGuiTestInputs::MouseHoveredViewport
     t.method("MouseHoveredViewport", [](const ImGuiTestInputs& a) -> ImGuiID { return a.MouseHoveredViewport; });
     t.method("MouseHoveredViewport", [](ImGuiTestInputs& a) -> ImGuiID { return a.MouseHoveredViewport; });
     t.method("MouseHoveredViewport", [](const ImGuiTestInputs* a) -> ImGuiID { return a->MouseHoveredViewport; });
     t.method("MouseHoveredViewport", [](ImGuiTestInputs* a) -> ImGuiID { return a->MouseHoveredViewport; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:120:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:141:33
     // signature to use in the veto list: ImGuiTestInputs::MouseHoveredViewport
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding MouseHoveredViewport! methods to provide write access to the field MouseHoveredViewport (" __HERE__ ")");
@@ -75,13 +75,13 @@ struct JlImGuiTestInputs: public Wrapper {
     t.method("MouseHoveredViewport!", [](ImGuiTestInputs* a, ImGuiID val) -> ImGuiID { return a->MouseHoveredViewport = val; });
 
     DEBUG_MSG("Adding MouseButtonsValue methods  to provide read access to the field MouseButtonsValue (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:121:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:142:33
     // signature to use in the veto list: ImGuiTestInputs::MouseButtonsValue
     t.method("MouseButtonsValue", [](const ImGuiTestInputs& a) -> int { return a.MouseButtonsValue; });
     t.method("MouseButtonsValue", [](ImGuiTestInputs& a) -> int { return a.MouseButtonsValue; });
     t.method("MouseButtonsValue", [](const ImGuiTestInputs* a) -> int { return a->MouseButtonsValue; });
     t.method("MouseButtonsValue", [](ImGuiTestInputs* a) -> int { return a->MouseButtonsValue; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:121:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:142:33
     // signature to use in the veto list: ImGuiTestInputs::MouseButtonsValue
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding MouseButtonsValue! methods to provide write access to the field MouseButtonsValue (" __HERE__ ")");
@@ -91,13 +91,13 @@ struct JlImGuiTestInputs: public Wrapper {
     t.method("MouseButtonsValue!", [](ImGuiTestInputs* a, int val) -> int { return a->MouseButtonsValue = val; });
 
     DEBUG_MSG("Adding HostEscDown methods  to provide read access to the field HostEscDown (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:123:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:144:33
     // signature to use in the veto list: ImGuiTestInputs::HostEscDown
     t.method("HostEscDown", [](const ImGuiTestInputs& a) -> bool { return a.HostEscDown; });
     t.method("HostEscDown", [](ImGuiTestInputs& a) -> bool { return a.HostEscDown; });
     t.method("HostEscDown", [](const ImGuiTestInputs* a) -> bool { return a->HostEscDown; });
     t.method("HostEscDown", [](ImGuiTestInputs* a) -> bool { return a->HostEscDown; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:123:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:144:33
     // signature to use in the veto list: ImGuiTestInputs::HostEscDown
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding HostEscDown! methods to provide write access to the field HostEscDown (" __HERE__ ")");
@@ -107,13 +107,13 @@ struct JlImGuiTestInputs: public Wrapper {
     t.method("HostEscDown!", [](ImGuiTestInputs* a, bool val) -> bool { return a->HostEscDown = val; });
 
     DEBUG_MSG("Adding HostEscDownDuration methods  to provide read access to the field HostEscDownDuration (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:124:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:145:33
     // signature to use in the veto list: ImGuiTestInputs::HostEscDownDuration
     t.method("HostEscDownDuration", [](const ImGuiTestInputs& a) -> float { return a.HostEscDownDuration; });
     t.method("HostEscDownDuration", [](ImGuiTestInputs& a) -> float { return a.HostEscDownDuration; });
     t.method("HostEscDownDuration", [](const ImGuiTestInputs* a) -> float { return a->HostEscDownDuration; });
     t.method("HostEscDownDuration", [](ImGuiTestInputs* a) -> float { return a->HostEscDownDuration; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:124:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:145:33
     // signature to use in the veto list: ImGuiTestInputs::HostEscDownDuration
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding HostEscDownDuration! methods to provide write access to the field HostEscDownDuration (" __HERE__ ")");
