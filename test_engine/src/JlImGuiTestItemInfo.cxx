@@ -122,30 +122,30 @@ struct JlImGuiTestItemInfo: public Wrapper {
     DEBUG_MSG("Adding ParentID! methods to provide write access to the field ParentID (" __HERE__ ")");
     t.method("ParentID!", [](ImGuiTestItemInfo* a, ImGuiID val) -> ImGuiID { return a->ParentID = val; });
 
-    DEBUG_MSG("Adding InFlags methods  to provide read access to the field InFlags (" __HERE__ ")");
+    DEBUG_MSG("Adding ItemFlags methods  to provide read access to the field ItemFlags (" __HERE__ ")");
     // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:310:33
-    // signature to use in the veto list: ImGuiTestItemInfo::InFlags
-    t.method("InFlags", [](const ImGuiTestItemInfo& a) -> ImGuiItemFlags { return a.InFlags; });
-    t.method("InFlags", [](ImGuiTestItemInfo& a) -> ImGuiItemFlags { return a.InFlags; });
-    t.method("InFlags", [](const ImGuiTestItemInfo* a) -> ImGuiItemFlags { return a->InFlags; });
-    t.method("InFlags", [](ImGuiTestItemInfo* a) -> ImGuiItemFlags { return a->InFlags; });
+    // signature to use in the veto list: ImGuiTestItemInfo::ItemFlags
+    t.method("ItemFlags", [](const ImGuiTestItemInfo& a) -> ImGuiItemFlags { return a.ItemFlags; });
+    t.method("ItemFlags", [](ImGuiTestItemInfo& a) -> ImGuiItemFlags { return a.ItemFlags; });
+    t.method("ItemFlags", [](const ImGuiTestItemInfo* a) -> ImGuiItemFlags { return a->ItemFlags; });
+    t.method("ItemFlags", [](ImGuiTestItemInfo* a) -> ImGuiItemFlags { return a->ItemFlags; });
     // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:310:33
-    // signature to use in the veto list: ImGuiTestItemInfo::InFlags
+    // signature to use in the veto list: ImGuiTestItemInfo::ItemFlags
     // with ! suffix to veto the setter only.
-    DEBUG_MSG("Adding InFlags! methods to provide write access to the field InFlags (" __HERE__ ")");
-    t.method("InFlags!", [](ImGuiTestItemInfo& a, ImGuiItemFlags val) -> ImGuiItemFlags { return a.InFlags = val; });
+    DEBUG_MSG("Adding ItemFlags! methods to provide write access to the field ItemFlags (" __HERE__ ")");
+    t.method("ItemFlags!", [](ImGuiTestItemInfo& a, ImGuiItemFlags val) -> ImGuiItemFlags { return a.ItemFlags = val; });
 
-    DEBUG_MSG("Adding InFlags! methods to provide write access to the field InFlags (" __HERE__ ")");
-    t.method("InFlags!", [](ImGuiTestItemInfo* a, ImGuiItemFlags val) -> ImGuiItemFlags { return a->InFlags = val; });
+    DEBUG_MSG("Adding ItemFlags! methods to provide write access to the field ItemFlags (" __HERE__ ")");
+    t.method("ItemFlags!", [](ImGuiTestItemInfo* a, ImGuiItemFlags val) -> ImGuiItemFlags { return a->ItemFlags = val; });
 
     DEBUG_MSG("Adding StatusFlags methods  to provide read access to the field StatusFlags (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:311:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:312:33
     // signature to use in the veto list: ImGuiTestItemInfo::StatusFlags
     t.method("StatusFlags", [](const ImGuiTestItemInfo& a) -> ImGuiItemStatusFlags { return a.StatusFlags; });
     t.method("StatusFlags", [](ImGuiTestItemInfo& a) -> ImGuiItemStatusFlags { return a.StatusFlags; });
     t.method("StatusFlags", [](const ImGuiTestItemInfo* a) -> ImGuiItemStatusFlags { return a->StatusFlags; });
     t.method("StatusFlags", [](ImGuiTestItemInfo* a) -> ImGuiItemStatusFlags { return a->StatusFlags; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:311:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:312:33
     // signature to use in the veto list: ImGuiTestItemInfo::StatusFlags
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding StatusFlags! methods to provide write access to the field StatusFlags (" __HERE__ ")");

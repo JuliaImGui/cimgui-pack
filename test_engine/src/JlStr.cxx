@@ -17,7 +17,7 @@ struct JlStr: public Wrapper {
 
   JlStr(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type Str (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/thirdparty/Str/Str.h:138:15
+    // defined in ./imgui_test_engine/imgui_test_engine/thirdparty/Str/Str.h:139:15
     jlcxx::TypeWrapper<Str>  t = jlModule.add_type<Str>("Str");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<Str>>(new jlcxx::TypeWrapper<Str>(jlModule, t));
   }
