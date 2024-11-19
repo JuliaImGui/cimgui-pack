@@ -18,7 +18,7 @@ struct JlImGuiContext: public Wrapper {
 
   JlImGuiContext(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type ImGuiContext (" __HERE__ ")");
-    // defined in ../cimgui/imgui/imgui_internal.h:2184:8
+    // defined in ../cimgui/imgui/imgui_internal.h:2214:8
     jlcxx::TypeWrapper<ImGuiContext>  t = jlModule.add_type<ImGuiContext>("ImGuiContext");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<ImGuiContext>>(new jlcxx::TypeWrapper<ImGuiContext>(jlModule, t));
   }

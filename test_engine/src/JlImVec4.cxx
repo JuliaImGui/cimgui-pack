@@ -17,7 +17,7 @@ struct JlImVec4: public Wrapper {
 
   JlImVec4(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type ImVec4 (" __HERE__ ")");
-    // defined in ../cimgui/imgui/imgui.h:306:8
+    // defined in ../cimgui/imgui/imgui.h:309:8
     jlcxx::TypeWrapper<ImVec4>  t = jlModule.add_type<ImVec4>("ImVec4");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<ImVec4>>(new jlcxx::TypeWrapper<ImVec4>(jlModule, t));
   }

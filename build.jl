@@ -13,7 +13,7 @@ end
 # Regenerate the cimgui bindings with comments enabled
 cd(joinpath(@__DIR__, "cimgui/generator")) do
     script = read("generator.sh", String)
-    script = replace(script, "TARGETS=\"" => "TARGETS=\"comments ")
+    script = replace(script, "TARGETS=\"" => "TARGETS=\"comments "; count=1)
     write("generator_with_comments.sh", script)
     chmod("generator_with_comments.sh", 0o744)
     run(`./generator_with_comments.sh`)
@@ -21,6 +21,10 @@ cd(joinpath(@__DIR__, "cimgui/generator")) do
     for json_file in filter(endswith(".json"), readdir("output"; join=true))
         cp(json_file, joinpath(output_dir, basename(json_file)); force=true)
     end
+
+    # Hack: cimgui.h is badly modified with comments turned on, so we reset it
+    # back to HEAD. See: https://github.com/cimgui/cimgui/issues/282
+    run(`git restore ../cimgui.h`)
 end
 
 # Generate the imgui_test_engine wrappers

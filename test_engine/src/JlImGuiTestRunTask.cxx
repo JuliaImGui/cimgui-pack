@@ -17,7 +17,7 @@ struct JlImGuiTestRunTask: public Wrapper {
 
   JlImGuiTestRunTask(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type ImGuiTestRunTask (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:443:18
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:444:18
     jlcxx::TypeWrapper<ImGuiTestRunTask>  t = jlModule.add_type<ImGuiTestRunTask>("ImGuiTestRunTask");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<ImGuiTestRunTask>>(new jlcxx::TypeWrapper<ImGuiTestRunTask>(jlModule, t));
   }
@@ -27,13 +27,13 @@ struct JlImGuiTestRunTask: public Wrapper {
     t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
 
     DEBUG_MSG("Adding Test methods  to provide read access to the field Test (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:445:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:446:25
     // signature to use in the veto list: ImGuiTestRunTask::Test
     t.method("Test", [](const ImGuiTestRunTask& a) -> ImGuiTest * { return a.Test; });
     t.method("Test", [](ImGuiTestRunTask& a) -> ImGuiTest * { return a.Test; });
     t.method("Test", [](const ImGuiTestRunTask* a) -> ImGuiTest * { return a->Test; });
     t.method("Test", [](ImGuiTestRunTask* a) -> ImGuiTest * { return a->Test; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:445:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:446:25
     // signature to use in the veto list: ImGuiTestRunTask::Test
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding Test! methods to provide write access to the field Test (" __HERE__ ")");
@@ -43,13 +43,13 @@ struct JlImGuiTestRunTask: public Wrapper {
     t.method("Test!", [](ImGuiTestRunTask* a, ImGuiTest * val) -> ImGuiTest * { return a->Test = val; });
 
     DEBUG_MSG("Adding RunFlags methods  to provide read access to the field RunFlags (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:446:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:447:25
     // signature to use in the veto list: ImGuiTestRunTask::RunFlags
     t.method("RunFlags", [](const ImGuiTestRunTask& a) -> ImGuiTestRunFlags { return a.RunFlags; });
     t.method("RunFlags", [](ImGuiTestRunTask& a) -> ImGuiTestRunFlags { return a.RunFlags; });
     t.method("RunFlags", [](const ImGuiTestRunTask* a) -> ImGuiTestRunFlags { return a->RunFlags; });
     t.method("RunFlags", [](ImGuiTestRunTask* a) -> ImGuiTestRunFlags { return a->RunFlags; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:446:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:447:25
     // signature to use in the veto list: ImGuiTestRunTask::RunFlags
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding RunFlags! methods to provide write access to the field RunFlags (" __HERE__ ")");

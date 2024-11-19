@@ -17,7 +17,7 @@ struct JlImGuiTestLogLineInfo: public Wrapper {
 
   JlImGuiTestLogLineInfo(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type ImGuiTestLogLineInfo (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:338:18
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:339:18
     jlcxx::TypeWrapper<ImGuiTestLogLineInfo>  t = jlModule.add_type<ImGuiTestLogLineInfo>("ImGuiTestLogLineInfo");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<ImGuiTestLogLineInfo>>(new jlcxx::TypeWrapper<ImGuiTestLogLineInfo>(jlModule, t));
   }
@@ -27,13 +27,13 @@ struct JlImGuiTestLogLineInfo: public Wrapper {
     t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
 
     DEBUG_MSG("Adding Level methods  to provide read access to the field Level (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:340:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:341:37
     // signature to use in the veto list: ImGuiTestLogLineInfo::Level
     t.method("Level", [](const ImGuiTestLogLineInfo& a) -> ImGuiTestVerboseLevel { return a.Level; });
     t.method("Level", [](ImGuiTestLogLineInfo& a) -> ImGuiTestVerboseLevel { return a.Level; });
     t.method("Level", [](const ImGuiTestLogLineInfo* a) -> ImGuiTestVerboseLevel { return a->Level; });
     t.method("Level", [](ImGuiTestLogLineInfo* a) -> ImGuiTestVerboseLevel { return a->Level; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:340:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:341:37
     // signature to use in the veto list: ImGuiTestLogLineInfo::Level
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding Level! methods to provide write access to the field Level (" __HERE__ ")");
@@ -43,13 +43,13 @@ struct JlImGuiTestLogLineInfo: public Wrapper {
     t.method("Level!", [](ImGuiTestLogLineInfo* a, ImGuiTestVerboseLevel val) -> ImGuiTestVerboseLevel { return a->Level = val; });
 
     DEBUG_MSG("Adding LineOffset methods  to provide read access to the field LineOffset (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:341:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:342:37
     // signature to use in the veto list: ImGuiTestLogLineInfo::LineOffset
     t.method("LineOffset", [](const ImGuiTestLogLineInfo& a) -> int { return a.LineOffset; });
     t.method("LineOffset", [](ImGuiTestLogLineInfo& a) -> int { return a.LineOffset; });
     t.method("LineOffset", [](const ImGuiTestLogLineInfo* a) -> int { return a->LineOffset; });
     t.method("LineOffset", [](ImGuiTestLogLineInfo* a) -> int { return a->LineOffset; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:341:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:342:37
     // signature to use in the veto list: ImGuiTestLogLineInfo::LineOffset
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding LineOffset! methods to provide write access to the field LineOffset (" __HERE__ ")");

@@ -26,53 +26,48 @@ struct JlImGuiTestContext: public Wrapper {
     auto& t = *type_;
     t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
 
-    DEBUG_MSG("Adding wrapper for void ImGuiTestContext::RecoverFromUiContextErrors() (" __HERE__ ")");
-    // signature to use in the veto list: void ImGuiTestContext::RecoverFromUiContextErrors()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:261:21
-    t.method("RecoverFromUiContextErrors", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::RecoverFromUiContextErrors));
-
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::Finish(ImGuiTestStatus) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::Finish(ImGuiTestStatus)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:262:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:261:21
     t.method("Finish", static_cast<void (ImGuiTestContext::*)(ImGuiTestStatus) >(&ImGuiTestContext::Finish));
     t.method("Finish", [](ImGuiTestContext& a)->void { a.Finish(); });
     t.method("Finish", [](ImGuiTestContext* a)->void { a->Finish(); });
 
     DEBUG_MSG("Adding wrapper for ImGuiTestStatus ImGuiTestContext::RunChildTest(const char *, ImGuiTestRunFlags) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiTestStatus ImGuiTestContext::RunChildTest(const char *, ImGuiTestRunFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:263:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:262:21
     t.method("RunChildTest", static_cast<ImGuiTestStatus (ImGuiTestContext::*)(const char *, ImGuiTestRunFlags) >(&ImGuiTestContext::RunChildTest));
     t.method("RunChildTest", [](ImGuiTestContext& a, const char * arg0)->ImGuiTestStatus { return a.RunChildTest(arg0); });
     t.method("RunChildTest", [](ImGuiTestContext* a, const char * arg0)->ImGuiTestStatus { return a->RunChildTest(arg0); });
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::IsError() (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::IsError()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:267:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:266:17
     t.method("IsError", static_cast<bool (ImGuiTestContext::*)()  const>(&ImGuiTestContext::IsError));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::IsWarmUpGuiFrame() (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::IsWarmUpGuiFrame()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:268:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:267:17
     t.method("IsWarmUpGuiFrame", static_cast<bool (ImGuiTestContext::*)()  const>(&ImGuiTestContext::IsWarmUpGuiFrame));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::IsFirstGuiFrame() (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::IsFirstGuiFrame()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:269:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:268:17
     t.method("IsFirstGuiFrame", static_cast<bool (ImGuiTestContext::*)()  const>(&ImGuiTestContext::IsFirstGuiFrame));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::IsFirstTestFrame() (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::IsFirstTestFrame()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:270:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:269:17
     t.method("IsFirstTestFrame", static_cast<bool (ImGuiTestContext::*)()  const>(&ImGuiTestContext::IsFirstTestFrame));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::IsGuiFuncOnly() (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::IsGuiFuncOnly()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:271:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:270:17
     t.method("IsGuiFuncOnly", static_cast<bool (ImGuiTestContext::*)()  const>(&ImGuiTestContext::IsGuiFuncOnly));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::SuspendTestFunc(const char *, int) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::SuspendTestFunc(const char *, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:274:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:273:17
     t.method("SuspendTestFunc", static_cast<bool (ImGuiTestContext::*)(const char *, int) >(&ImGuiTestContext::SuspendTestFunc));
     t.method("SuspendTestFunc", [](ImGuiTestContext& a)->bool { return a.SuspendTestFunc(); });
     t.method("SuspendTestFunc", [](ImGuiTestContext& a, const char * arg0)->bool { return a.SuspendTestFunc(arg0); });
@@ -82,14 +77,14 @@ struct JlImGuiTestContext: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::LogToTTY(ImGuiTestVerboseLevel, const char *, const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::LogToTTY(ImGuiTestVerboseLevel, const char *, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:279:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:278:17
     t.method("LogToTTY", static_cast<void (ImGuiTestContext::*)(ImGuiTestVerboseLevel, const char *, const char *) >(&ImGuiTestContext::LogToTTY));
     t.method("LogToTTY", [](ImGuiTestContext& a, ImGuiTestVerboseLevel arg0, const char * arg1)->void { a.LogToTTY(arg0, arg1); });
     t.method("LogToTTY", [](ImGuiTestContext* a, ImGuiTestVerboseLevel arg0, const char * arg1)->void { a->LogToTTY(arg0, arg1); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::LogToDebugger(ImGuiTestVerboseLevel, const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::LogToDebugger(ImGuiTestVerboseLevel, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:280:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:279:17
     t.method("LogToDebugger", static_cast<void (ImGuiTestContext::*)(ImGuiTestVerboseLevel, const char *) >(&ImGuiTestContext::LogToDebugger));
 
 
@@ -98,85 +93,85 @@ struct JlImGuiTestContext: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::LogBasicUiState() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::LogBasicUiState()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:285:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:284:17
     t.method("LogBasicUiState", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::LogBasicUiState));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::LogItemList(ImGuiTestItemList *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::LogItemList(ImGuiTestItemList *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:286:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:285:17
     t.method("LogItemList", static_cast<void (ImGuiTestContext::*)(ImGuiTestItemList *) >(&ImGuiTestContext::LogItemList));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::Yield(int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::Yield(int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:289:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:288:17
     t.method("Yield", static_cast<void (ImGuiTestContext::*)(int) >(&ImGuiTestContext::Yield));
     t.method("Yield", [](ImGuiTestContext& a)->void { a.Yield(); });
     t.method("Yield", [](ImGuiTestContext* a)->void { a->Yield(); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::Sleep(float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::Sleep(float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:290:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:289:17
     t.method("Sleep", static_cast<void (ImGuiTestContext::*)(float) >(&ImGuiTestContext::Sleep));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::SleepShort() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::SleepShort()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:291:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:290:17
     t.method("SleepShort", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::SleepShort));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::SleepStandard() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::SleepStandard()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:292:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:291:17
     t.method("SleepStandard", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::SleepStandard));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::SleepNoSkip(float, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::SleepNoSkip(float, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:293:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:292:17
     t.method("SleepNoSkip", static_cast<void (ImGuiTestContext::*)(float, float) >(&ImGuiTestContext::SleepNoSkip));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::SetRef(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::SetRef(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:304:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:303:17
     t.method("SetRef", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::SetRef));
 
     DEBUG_MSG("Adding wrapper for ImGuiTestRef ImGuiTestContext::GetRef() (" __HERE__ ")");
     // signature to use in the veto list: ImGuiTestRef ImGuiTestContext::GetRef()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:306:18
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:305:18
     t.method("GetRef", static_cast<ImGuiTestRef (ImGuiTestContext::*)() >(&ImGuiTestContext::GetRef));
 
     DEBUG_MSG("Adding wrapper for ImGuiTestItemInfo ImGuiTestContext::WindowInfo(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiTestItemInfo ImGuiTestContext::WindowInfo(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:311:23
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:310:23
     t.method("WindowInfo", static_cast<ImGuiTestItemInfo (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::WindowInfo));
     t.method("WindowInfo", [](ImGuiTestContext& a, ImGuiTestRef arg0)->ImGuiTestItemInfo { return a.WindowInfo(arg0); });
     t.method("WindowInfo", [](ImGuiTestContext* a, ImGuiTestRef arg0)->ImGuiTestItemInfo { return a->WindowInfo(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::WindowClose(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::WindowClose(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:312:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:311:17
     t.method("WindowClose", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::WindowClose));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::WindowCollapse(ImGuiTestRef, bool) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::WindowCollapse(ImGuiTestRef, bool)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:313:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:312:17
     t.method("WindowCollapse", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, bool) >(&ImGuiTestContext::WindowCollapse));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::WindowFocus(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::WindowFocus(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:314:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:313:17
     t.method("WindowFocus", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::WindowFocus));
     t.method("WindowFocus", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.WindowFocus(arg0); });
     t.method("WindowFocus", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->WindowFocus(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::WindowBringToFront(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::WindowBringToFront(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:315:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:314:17
     t.method("WindowBringToFront", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::WindowBringToFront));
     t.method("WindowBringToFront", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.WindowBringToFront(arg0); });
     t.method("WindowBringToFront", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->WindowBringToFront(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::WindowMove(ImGuiTestRef, ImVec2, ImVec2, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::WindowMove(ImGuiTestRef, ImVec2, ImVec2, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:316:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:315:17
     t.method("WindowMove", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImVec2, ImVec2, ImGuiTestOpFlags) >(&ImGuiTestContext::WindowMove));
     t.method("WindowMove", [](ImGuiTestContext& a, ImGuiTestRef arg0, ImVec2 arg1)->void { a.WindowMove(arg0, arg1); });
     t.method("WindowMove", [](ImGuiTestContext& a, ImGuiTestRef arg0, ImVec2 arg1, ImVec2 arg2)->void { a.WindowMove(arg0, arg1, arg2); });
@@ -185,320 +180,320 @@ struct JlImGuiTestContext: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::WindowResize(ImGuiTestRef, ImVec2) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::WindowResize(ImGuiTestRef, ImVec2)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:317:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:316:17
     t.method("WindowResize", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImVec2) >(&ImGuiTestContext::WindowResize));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::WindowTeleportToMakePosVisible(ImGuiTestRef, ImVec2) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::WindowTeleportToMakePosVisible(ImGuiTestRef, ImVec2)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:318:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:317:17
     t.method("WindowTeleportToMakePosVisible", static_cast<bool (ImGuiTestContext::*)(ImGuiTestRef, ImVec2) >(&ImGuiTestContext::WindowTeleportToMakePosVisible));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::PopupCloseOne() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::PopupCloseOne()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:322:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:321:17
     t.method("PopupCloseOne", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::PopupCloseOne));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::PopupCloseAll() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::PopupCloseAll()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:323:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:322:17
     t.method("PopupCloseAll", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::PopupCloseAll));
 
     DEBUG_MSG("Adding wrapper for ImGuiID ImGuiTestContext::PopupGetWindowID(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiID ImGuiTestContext::PopupGetWindowID(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:324:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:323:17
     t.method("PopupGetWindowID", static_cast<ImGuiID (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::PopupGetWindowID));
 
     DEBUG_MSG("Adding wrapper for ImGuiID ImGuiTestContext::GetID(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiID ImGuiTestContext::GetID(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:328:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:327:17
     t.method("GetID", static_cast<ImGuiID (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::GetID));
 
     DEBUG_MSG("Adding wrapper for ImGuiID ImGuiTestContext::GetID(ImGuiTestRef, ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiID ImGuiTestContext::GetID(ImGuiTestRef, ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:329:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:328:17
     t.method("GetID", static_cast<ImGuiID (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestRef) >(&ImGuiTestContext::GetID));
 
     DEBUG_MSG("Adding wrapper for ImVec2 ImGuiTestContext::GetWindowTitlebarPoint(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: ImVec2 ImGuiTestContext::GetWindowTitlebarPoint(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:333:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:332:17
     t.method("GetWindowTitlebarPoint", static_cast<ImVec2 (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::GetWindowTitlebarPoint));
 
     DEBUG_MSG("Adding wrapper for ImVec2 ImGuiTestContext::GetMainMonitorWorkPos() (" __HERE__ ")");
     // signature to use in the veto list: ImVec2 ImGuiTestContext::GetMainMonitorWorkPos()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:334:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:333:17
     t.method("GetMainMonitorWorkPos", static_cast<ImVec2 (ImGuiTestContext::*)() >(&ImGuiTestContext::GetMainMonitorWorkPos));
 
     DEBUG_MSG("Adding wrapper for ImVec2 ImGuiTestContext::GetMainMonitorWorkSize() (" __HERE__ ")");
     // signature to use in the veto list: ImVec2 ImGuiTestContext::GetMainMonitorWorkSize()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:335:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:334:17
     t.method("GetMainMonitorWorkSize", static_cast<ImVec2 (ImGuiTestContext::*)() >(&ImGuiTestContext::GetMainMonitorWorkSize));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::CaptureReset() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::CaptureReset()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:338:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:337:17
     t.method("CaptureReset", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::CaptureReset));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::CaptureSetExtension(const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::CaptureSetExtension(const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:339:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:338:17
     t.method("CaptureSetExtension", static_cast<void (ImGuiTestContext::*)(const char *) >(&ImGuiTestContext::CaptureSetExtension));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::CaptureAddWindow(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::CaptureAddWindow(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:340:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:339:17
     t.method("CaptureAddWindow", static_cast<bool (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::CaptureAddWindow));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::CaptureScreenshotWindow(ImGuiTestRef, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::CaptureScreenshotWindow(ImGuiTestRef, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:341:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:340:17
     t.method("CaptureScreenshotWindow", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, int) >(&ImGuiTestContext::CaptureScreenshotWindow));
     t.method("CaptureScreenshotWindow", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.CaptureScreenshotWindow(arg0); });
     t.method("CaptureScreenshotWindow", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->CaptureScreenshotWindow(arg0); });
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::CaptureScreenshot(int) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::CaptureScreenshot(int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:342:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:341:17
     t.method("CaptureScreenshot", static_cast<bool (ImGuiTestContext::*)(int) >(&ImGuiTestContext::CaptureScreenshot));
     t.method("CaptureScreenshot", [](ImGuiTestContext& a)->bool { return a.CaptureScreenshot(); });
     t.method("CaptureScreenshot", [](ImGuiTestContext* a)->bool { return a->CaptureScreenshot(); });
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::CaptureBeginVideo() (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::CaptureBeginVideo()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:343:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:342:17
     t.method("CaptureBeginVideo", static_cast<bool (ImGuiTestContext::*)() >(&ImGuiTestContext::CaptureBeginVideo));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::CaptureEndVideo() (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::CaptureEndVideo()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:344:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:343:17
     t.method("CaptureEndVideo", static_cast<bool (ImGuiTestContext::*)() >(&ImGuiTestContext::CaptureEndVideo));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseMove(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseMove(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:347:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:346:17
     t.method("MouseMove", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::MouseMove));
     t.method("MouseMove", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.MouseMove(arg0); });
     t.method("MouseMove", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->MouseMove(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseMoveToPos(ImVec2) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseMoveToPos(ImVec2)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:348:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:347:17
     t.method("MouseMoveToPos", static_cast<void (ImGuiTestContext::*)(ImVec2) >(&ImGuiTestContext::MouseMoveToPos));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseTeleportToPos(ImVec2, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseTeleportToPos(ImVec2, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:349:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:348:17
     t.method("MouseTeleportToPos", static_cast<void (ImGuiTestContext::*)(ImVec2, ImGuiTestOpFlags) >(&ImGuiTestContext::MouseTeleportToPos));
     t.method("MouseTeleportToPos", [](ImGuiTestContext& a, ImVec2 arg0)->void { a.MouseTeleportToPos(arg0); });
     t.method("MouseTeleportToPos", [](ImGuiTestContext* a, ImVec2 arg0)->void { a->MouseTeleportToPos(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseClick(ImGuiMouseButton) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseClick(ImGuiMouseButton)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:350:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:349:17
     t.method("MouseClick", static_cast<void (ImGuiTestContext::*)(ImGuiMouseButton) >(&ImGuiTestContext::MouseClick));
     t.method("MouseClick", [](ImGuiTestContext& a)->void { a.MouseClick(); });
     t.method("MouseClick", [](ImGuiTestContext* a)->void { a->MouseClick(); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseClickMulti(ImGuiMouseButton, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseClickMulti(ImGuiMouseButton, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:351:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:350:17
     t.method("MouseClickMulti", static_cast<void (ImGuiTestContext::*)(ImGuiMouseButton, int) >(&ImGuiTestContext::MouseClickMulti));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseDoubleClick(ImGuiMouseButton) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseDoubleClick(ImGuiMouseButton)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:352:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:351:17
     t.method("MouseDoubleClick", static_cast<void (ImGuiTestContext::*)(ImGuiMouseButton) >(&ImGuiTestContext::MouseDoubleClick));
     t.method("MouseDoubleClick", [](ImGuiTestContext& a)->void { a.MouseDoubleClick(); });
     t.method("MouseDoubleClick", [](ImGuiTestContext* a)->void { a->MouseDoubleClick(); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseDown(ImGuiMouseButton) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseDown(ImGuiMouseButton)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:353:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:352:17
     t.method("MouseDown", static_cast<void (ImGuiTestContext::*)(ImGuiMouseButton) >(&ImGuiTestContext::MouseDown));
     t.method("MouseDown", [](ImGuiTestContext& a)->void { a.MouseDown(); });
     t.method("MouseDown", [](ImGuiTestContext* a)->void { a->MouseDown(); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseUp(ImGuiMouseButton) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseUp(ImGuiMouseButton)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:354:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:353:17
     t.method("MouseUp", static_cast<void (ImGuiTestContext::*)(ImGuiMouseButton) >(&ImGuiTestContext::MouseUp));
     t.method("MouseUp", [](ImGuiTestContext& a)->void { a.MouseUp(); });
     t.method("MouseUp", [](ImGuiTestContext* a)->void { a->MouseUp(); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseLiftDragThreshold(ImGuiMouseButton) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseLiftDragThreshold(ImGuiMouseButton)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:355:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:354:17
     t.method("MouseLiftDragThreshold", static_cast<void (ImGuiTestContext::*)(ImGuiMouseButton) >(&ImGuiTestContext::MouseLiftDragThreshold));
     t.method("MouseLiftDragThreshold", [](ImGuiTestContext& a)->void { a.MouseLiftDragThreshold(); });
     t.method("MouseLiftDragThreshold", [](ImGuiTestContext* a)->void { a->MouseLiftDragThreshold(); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseDragWithDelta(ImVec2, ImGuiMouseButton) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseDragWithDelta(ImVec2, ImGuiMouseButton)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:356:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:355:17
     t.method("MouseDragWithDelta", static_cast<void (ImGuiTestContext::*)(ImVec2, ImGuiMouseButton) >(&ImGuiTestContext::MouseDragWithDelta));
     t.method("MouseDragWithDelta", [](ImGuiTestContext& a, ImVec2 arg0)->void { a.MouseDragWithDelta(arg0); });
     t.method("MouseDragWithDelta", [](ImGuiTestContext* a, ImVec2 arg0)->void { a->MouseDragWithDelta(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseWheel(ImVec2) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseWheel(ImVec2)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:357:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:356:17
     t.method("MouseWheel", static_cast<void (ImGuiTestContext::*)(ImVec2) >(&ImGuiTestContext::MouseWheel));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseWheelX(float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseWheelX(float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:358:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:357:17
     t.method("MouseWheelX", static_cast<void (ImGuiTestContext::*)(float) >(&ImGuiTestContext::MouseWheelX));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseWheelY(float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseWheelY(float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:359:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:358:17
     t.method("MouseWheelY", static_cast<void (ImGuiTestContext::*)(float) >(&ImGuiTestContext::MouseWheelY));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MouseSetViewportID(ImGuiID) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MouseSetViewportID(ImGuiID)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:369:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:368:17
     t.method("MouseSetViewportID", static_cast<void (ImGuiTestContext::*)(ImGuiID) >(&ImGuiTestContext::MouseSetViewportID));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyDown(ImGuiKeyChord) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyDown(ImGuiKeyChord)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:372:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:371:17
     t.method("KeyDown", static_cast<void (ImGuiTestContext::*)(ImGuiKeyChord) >(&ImGuiTestContext::KeyDown));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyUp(ImGuiKeyChord) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyUp(ImGuiKeyChord)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:373:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:372:17
     t.method("KeyUp", static_cast<void (ImGuiTestContext::*)(ImGuiKeyChord) >(&ImGuiTestContext::KeyUp));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyPress(ImGuiKeyChord, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyPress(ImGuiKeyChord, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:374:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:373:17
     t.method("KeyPress", static_cast<void (ImGuiTestContext::*)(ImGuiKeyChord, int) >(&ImGuiTestContext::KeyPress));
     t.method("KeyPress", [](ImGuiTestContext& a, ImGuiKeyChord arg0)->void { a.KeyPress(arg0); });
     t.method("KeyPress", [](ImGuiTestContext* a, ImGuiKeyChord arg0)->void { a->KeyPress(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyHold(ImGuiKeyChord, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyHold(ImGuiKeyChord, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:375:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:374:17
     t.method("KeyHold", static_cast<void (ImGuiTestContext::*)(ImGuiKeyChord, float) >(&ImGuiTestContext::KeyHold));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeySetEx(ImGuiKeyChord, bool, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeySetEx(ImGuiKeyChord, bool, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:376:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:375:17
     t.method("KeySetEx", static_cast<void (ImGuiTestContext::*)(ImGuiKeyChord, bool, float) >(&ImGuiTestContext::KeySetEx));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyChars(const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyChars(const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:377:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:376:17
     t.method("KeyChars", static_cast<void (ImGuiTestContext::*)(const char *) >(&ImGuiTestContext::KeyChars));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyCharsAppend(const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyCharsAppend(const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:378:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:377:17
     t.method("KeyCharsAppend", static_cast<void (ImGuiTestContext::*)(const char *) >(&ImGuiTestContext::KeyCharsAppend));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyCharsAppendEnter(const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyCharsAppendEnter(const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:379:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:378:17
     t.method("KeyCharsAppendEnter", static_cast<void (ImGuiTestContext::*)(const char *) >(&ImGuiTestContext::KeyCharsAppendEnter));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyCharsReplace(const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyCharsReplace(const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:380:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:379:17
     t.method("KeyCharsReplace", static_cast<void (ImGuiTestContext::*)(const char *) >(&ImGuiTestContext::KeyCharsReplace));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::KeyCharsReplaceEnter(const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::KeyCharsReplaceEnter(const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:381:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:380:17
     t.method("KeyCharsReplaceEnter", static_cast<void (ImGuiTestContext::*)(const char *) >(&ImGuiTestContext::KeyCharsReplaceEnter));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::SetInputMode(ImGuiInputSource) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::SetInputMode(ImGuiInputSource)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:388:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:387:17
     t.method("SetInputMode", static_cast<void (ImGuiTestContext::*)(ImGuiInputSource) >(&ImGuiTestContext::SetInputMode));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::NavMoveTo(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::NavMoveTo(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:389:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:388:17
     t.method("NavMoveTo", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::NavMoveTo));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::NavActivate() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::NavActivate()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:390:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:389:17
     t.method("NavActivate", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::NavActivate));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::NavInput() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::NavInput()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:391:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:390:17
     t.method("NavInput", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::NavInput));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ScrollToX(ImGuiTestRef, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ScrollToX(ImGuiTestRef, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:395:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:394:17
     t.method("ScrollToX", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, float) >(&ImGuiTestContext::ScrollToX));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ScrollToY(ImGuiTestRef, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ScrollToY(ImGuiTestRef, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:396:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:395:17
     t.method("ScrollToY", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, float) >(&ImGuiTestContext::ScrollToY));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ScrollToTop(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ScrollToTop(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:397:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:396:17
     t.method("ScrollToTop", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ScrollToTop));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ScrollToBottom(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ScrollToBottom(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:398:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:397:17
     t.method("ScrollToBottom", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ScrollToBottom));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ScrollToItemX(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ScrollToItemX(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:400:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:399:17
     t.method("ScrollToItemX", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ScrollToItemX));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ScrollToItemY(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ScrollToItemY(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:401:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:400:17
     t.method("ScrollToItemY", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ScrollToItemY));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ScrollVerifyScrollMax(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ScrollVerifyScrollMax(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:404:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:403:17
     t.method("ScrollVerifyScrollMax", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ScrollVerifyScrollMax));
 
     DEBUG_MSG("Adding wrapper for ImGuiTestItemInfo ImGuiTestContext::ItemInfo(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiTestItemInfo ImGuiTestContext::ItemInfo(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:409:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:408:25
     t.method("ItemInfo", static_cast<ImGuiTestItemInfo (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemInfo));
     t.method("ItemInfo", [](ImGuiTestContext& a, ImGuiTestRef arg0)->ImGuiTestItemInfo { return a.ItemInfo(arg0); });
     t.method("ItemInfo", [](ImGuiTestContext* a, ImGuiTestRef arg0)->ImGuiTestItemInfo { return a->ItemInfo(arg0); });
 
     DEBUG_MSG("Adding wrapper for ImGuiTestItemInfo ImGuiTestContext::ItemInfoOpenFullPath(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiTestItemInfo ImGuiTestContext::ItemInfoOpenFullPath(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:410:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:409:25
     t.method("ItemInfoOpenFullPath", static_cast<ImGuiTestItemInfo (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemInfoOpenFullPath));
     t.method("ItemInfoOpenFullPath", [](ImGuiTestContext& a, ImGuiTestRef arg0)->ImGuiTestItemInfo { return a.ItemInfoOpenFullPath(arg0); });
     t.method("ItemInfoOpenFullPath", [](ImGuiTestContext* a, ImGuiTestRef arg0)->ImGuiTestItemInfo { return a->ItemInfoOpenFullPath(arg0); });
 
     DEBUG_MSG("Adding wrapper for ImGuiID ImGuiTestContext::ItemInfoHandleWildcardSearch(const char *, const char *, const char *) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiID ImGuiTestContext::ItemInfoHandleWildcardSearch(const char *, const char *, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:411:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:410:25
     t.method("ItemInfoHandleWildcardSearch", static_cast<ImGuiID (ImGuiTestContext::*)(const char *, const char *, const char *) >(&ImGuiTestContext::ItemInfoHandleWildcardSearch));
 
     DEBUG_MSG("Adding wrapper for ImGuiTestItemInfo ImGuiTestContext::ItemInfoNull() (" __HERE__ ")");
     // signature to use in the veto list: ImGuiTestItemInfo ImGuiTestContext::ItemInfoNull()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:412:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:411:25
     t.method("ItemInfoNull", static_cast<ImGuiTestItemInfo (ImGuiTestContext::*)() >(&ImGuiTestContext::ItemInfoNull));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::GatherItems(ImGuiTestItemList *, ImGuiTestRef, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::GatherItems(ImGuiTestItemList *, ImGuiTestRef, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:413:25
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:412:25
     t.method("GatherItems", static_cast<void (ImGuiTestContext::*)(ImGuiTestItemList *, ImGuiTestRef, int) >(&ImGuiTestContext::GatherItems));
     t.method("GatherItems", [](ImGuiTestContext& a, ImGuiTestItemList * arg0, ImGuiTestRef arg1)->void { a.GatherItems(arg0, arg1); });
     t.method("GatherItems", [](ImGuiTestContext* a, ImGuiTestItemList * arg0, ImGuiTestRef arg1)->void { a->GatherItems(arg0, arg1); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemAction(ImGuiTestAction, ImGuiTestRef, ImGuiTestOpFlags, void *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemAction(ImGuiTestAction, ImGuiTestRef, ImGuiTestOpFlags, void *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:416:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:415:17
     t.method("ItemAction", static_cast<void (ImGuiTestContext::*)(ImGuiTestAction, ImGuiTestRef, ImGuiTestOpFlags, void *) >(&ImGuiTestContext::ItemAction));
     t.method("ItemAction", [](ImGuiTestContext& a, ImGuiTestAction arg0, ImGuiTestRef arg1)->void { a.ItemAction(arg0, arg1); });
     t.method("ItemAction", [](ImGuiTestContext& a, ImGuiTestAction arg0, ImGuiTestRef arg1, ImGuiTestOpFlags arg2)->void { a.ItemAction(arg0, arg1, arg2); });
@@ -507,7 +502,7 @@ struct JlImGuiTestContext: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemClick(ImGuiTestRef, ImGuiMouseButton, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemClick(ImGuiTestRef, ImGuiMouseButton, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:417:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:416:17
     t.method("ItemClick", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiMouseButton, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemClick));
     t.method("ItemClick", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemClick(arg0); });
     t.method("ItemClick", [](ImGuiTestContext& a, ImGuiTestRef arg0, ImGuiMouseButton arg1)->void { a.ItemClick(arg0, arg1); });
@@ -516,63 +511,63 @@ struct JlImGuiTestContext: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemDoubleClick(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemDoubleClick(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:418:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:417:17
     t.method("ItemDoubleClick", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemDoubleClick));
     t.method("ItemDoubleClick", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemDoubleClick(arg0); });
     t.method("ItemDoubleClick", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->ItemDoubleClick(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemCheck(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemCheck(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:419:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:418:17
     t.method("ItemCheck", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemCheck));
     t.method("ItemCheck", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemCheck(arg0); });
     t.method("ItemCheck", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->ItemCheck(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemUncheck(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemUncheck(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:420:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:419:17
     t.method("ItemUncheck", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemUncheck));
     t.method("ItemUncheck", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemUncheck(arg0); });
     t.method("ItemUncheck", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->ItemUncheck(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemOpen(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemOpen(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:421:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:420:17
     t.method("ItemOpen", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemOpen));
     t.method("ItemOpen", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemOpen(arg0); });
     t.method("ItemOpen", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->ItemOpen(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemClose(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemClose(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:422:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:421:17
     t.method("ItemClose", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemClose));
     t.method("ItemClose", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemClose(arg0); });
     t.method("ItemClose", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->ItemClose(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemInput(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemInput(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:423:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:422:17
     t.method("ItemInput", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemInput));
     t.method("ItemInput", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemInput(arg0); });
     t.method("ItemInput", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->ItemInput(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemNavActivate(ImGuiTestRef, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemNavActivate(ImGuiTestRef, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:424:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:423:17
     t.method("ItemNavActivate", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemNavActivate));
     t.method("ItemNavActivate", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemNavActivate(arg0); });
     t.method("ItemNavActivate", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->ItemNavActivate(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemActionAll(ImGuiTestAction, ImGuiTestRef, const ImGuiTestActionFilter *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemActionAll(ImGuiTestAction, ImGuiTestRef, const ImGuiTestActionFilter *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:428:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:427:17
     t.method("ItemActionAll", static_cast<void (ImGuiTestContext::*)(ImGuiTestAction, ImGuiTestRef, const ImGuiTestActionFilter *) >(&ImGuiTestContext::ItemActionAll));
     t.method("ItemActionAll", [](ImGuiTestContext& a, ImGuiTestAction arg0, ImGuiTestRef arg1)->void { a.ItemActionAll(arg0, arg1); });
     t.method("ItemActionAll", [](ImGuiTestContext* a, ImGuiTestAction arg0, ImGuiTestRef arg1)->void { a->ItemActionAll(arg0, arg1); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemOpenAll(ImGuiTestRef, int, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemOpenAll(ImGuiTestRef, int, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:429:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:428:17
     t.method("ItemOpenAll", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, int, int) >(&ImGuiTestContext::ItemOpenAll));
     t.method("ItemOpenAll", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemOpenAll(arg0); });
     t.method("ItemOpenAll", [](ImGuiTestContext& a, ImGuiTestRef arg0, int arg1)->void { a.ItemOpenAll(arg0, arg1); });
@@ -581,7 +576,7 @@ struct JlImGuiTestContext: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemCloseAll(ImGuiTestRef, int, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemCloseAll(ImGuiTestRef, int, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:430:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:429:17
     t.method("ItemCloseAll", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, int, int) >(&ImGuiTestContext::ItemCloseAll));
     t.method("ItemCloseAll", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.ItemCloseAll(arg0); });
     t.method("ItemCloseAll", [](ImGuiTestContext& a, ImGuiTestRef arg0, int arg1)->void { a.ItemCloseAll(arg0, arg1); });
@@ -590,174 +585,174 @@ struct JlImGuiTestContext: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemInputValue(ImGuiTestRef, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemInputValue(ImGuiTestRef, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:433:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:432:17
     t.method("ItemInputValue", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, int) >(&ImGuiTestContext::ItemInputValue));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemInputValue(ImGuiTestRef, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemInputValue(ImGuiTestRef, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:434:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:433:17
     t.method("ItemInputValue", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, float) >(&ImGuiTestContext::ItemInputValue));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemInputValue(ImGuiTestRef, const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemInputValue(ImGuiTestRef, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:435:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:434:17
     t.method("ItemInputValue", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, const char *) >(&ImGuiTestContext::ItemInputValue));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::ItemSelectAndReadValue(ImGuiTestRef, ImGuiDataType, void *, ImGuiTestOpFlags) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::ItemSelectAndReadValue(ImGuiTestRef, ImGuiDataType, void *, ImGuiTestOpFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:440:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:439:17
     t.method("ItemSelectAndReadValue", static_cast<bool (ImGuiTestContext::*)(ImGuiTestRef, ImGuiDataType, void *, ImGuiTestOpFlags) >(&ImGuiTestContext::ItemSelectAndReadValue));
     t.method("ItemSelectAndReadValue", [](ImGuiTestContext& a, ImGuiTestRef arg0, ImGuiDataType arg1, void * arg2)->bool { return a.ItemSelectAndReadValue(arg0, arg1, arg2); });
     t.method("ItemSelectAndReadValue", [](ImGuiTestContext* a, ImGuiTestRef arg0, ImGuiDataType arg1, void * arg2)->bool { return a->ItemSelectAndReadValue(arg0, arg1, arg2); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemSelectAndReadValue(ImGuiTestRef, int *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemSelectAndReadValue(ImGuiTestRef, int *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:441:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:440:17
     t.method("ItemSelectAndReadValue", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, int *) >(&ImGuiTestContext::ItemSelectAndReadValue));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemSelectAndReadValue(ImGuiTestRef, float *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemSelectAndReadValue(ImGuiTestRef, float *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:442:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:441:17
     t.method("ItemSelectAndReadValue", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, float *) >(&ImGuiTestContext::ItemSelectAndReadValue));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::ItemExists(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::ItemExists(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:445:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:444:17
     t.method("ItemExists", static_cast<bool (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ItemExists));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::ItemIsChecked(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::ItemIsChecked(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:446:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:445:17
     t.method("ItemIsChecked", static_cast<bool (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ItemIsChecked));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::ItemIsOpened(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::ItemIsOpened(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:447:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:446:17
     t.method("ItemIsOpened", static_cast<bool (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ItemIsOpened));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemVerifyCheckedIfAlive(ImGuiTestRef, bool) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemVerifyCheckedIfAlive(ImGuiTestRef, bool)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:448:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:447:17
     t.method("ItemVerifyCheckedIfAlive", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, bool) >(&ImGuiTestContext::ItemVerifyCheckedIfAlive));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemHold(ImGuiTestRef, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemHold(ImGuiTestRef, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:451:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:450:17
     t.method("ItemHold", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, float) >(&ImGuiTestContext::ItemHold));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemHoldForFrames(ImGuiTestRef, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemHoldForFrames(ImGuiTestRef, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:452:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:451:17
     t.method("ItemHoldForFrames", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, int) >(&ImGuiTestContext::ItemHoldForFrames));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemDragOverAndHold(ImGuiTestRef, ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemDragOverAndHold(ImGuiTestRef, ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:453:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:452:17
     t.method("ItemDragOverAndHold", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestRef) >(&ImGuiTestContext::ItemDragOverAndHold));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemDragAndDrop(ImGuiTestRef, ImGuiTestRef, ImGuiMouseButton) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemDragAndDrop(ImGuiTestRef, ImGuiTestRef, ImGuiMouseButton)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:454:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:453:17
     t.method("ItemDragAndDrop", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImGuiTestRef, ImGuiMouseButton) >(&ImGuiTestContext::ItemDragAndDrop));
     t.method("ItemDragAndDrop", [](ImGuiTestContext& a, ImGuiTestRef arg0, ImGuiTestRef arg1)->void { a.ItemDragAndDrop(arg0, arg1); });
     t.method("ItemDragAndDrop", [](ImGuiTestContext* a, ImGuiTestRef arg0, ImGuiTestRef arg1)->void { a->ItemDragAndDrop(arg0, arg1); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ItemDragWithDelta(ImGuiTestRef, ImVec2) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ItemDragWithDelta(ImGuiTestRef, ImVec2)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:455:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:454:17
     t.method("ItemDragWithDelta", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, ImVec2) >(&ImGuiTestContext::ItemDragWithDelta));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::TabClose(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::TabClose(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:458:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:457:17
     t.method("TabClose", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::TabClose));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MenuAction(ImGuiTestAction, ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MenuAction(ImGuiTestAction, ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:463:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:462:17
     t.method("MenuAction", static_cast<void (ImGuiTestContext::*)(ImGuiTestAction, ImGuiTestRef) >(&ImGuiTestContext::MenuAction));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MenuActionAll(ImGuiTestAction, ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MenuActionAll(ImGuiTestAction, ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:464:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:463:17
     t.method("MenuActionAll", static_cast<void (ImGuiTestContext::*)(ImGuiTestAction, ImGuiTestRef) >(&ImGuiTestContext::MenuActionAll));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MenuClick(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MenuClick(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:465:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:464:17
     t.method("MenuClick", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::MenuClick));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MenuCheck(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MenuCheck(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:466:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:465:17
     t.method("MenuCheck", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::MenuCheck));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MenuUncheck(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MenuUncheck(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:467:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:466:17
     t.method("MenuUncheck", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::MenuUncheck));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MenuCheckAll(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MenuCheckAll(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:468:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:467:17
     t.method("MenuCheckAll", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::MenuCheckAll));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::MenuUncheckAll(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::MenuUncheckAll(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:469:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:468:17
     t.method("MenuUncheckAll", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::MenuUncheckAll));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ComboClick(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ComboClick(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:472:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:471:17
     t.method("ComboClick", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ComboClick));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::ComboClickAll(ImGuiTestRef) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::ComboClickAll(ImGuiTestRef)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:473:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:472:17
     t.method("ComboClickAll", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef) >(&ImGuiTestContext::ComboClickAll));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::TableOpenContextMenu(ImGuiTestRef, int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::TableOpenContextMenu(ImGuiTestRef, int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:476:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:475:33
     t.method("TableOpenContextMenu", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, int) >(&ImGuiTestContext::TableOpenContextMenu));
     t.method("TableOpenContextMenu", [](ImGuiTestContext& a, ImGuiTestRef arg0)->void { a.TableOpenContextMenu(arg0); });
     t.method("TableOpenContextMenu", [](ImGuiTestContext* a, ImGuiTestRef arg0)->void { a->TableOpenContextMenu(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::TableSetColumnEnabled(ImGuiTestRef, const char *, bool) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::TableSetColumnEnabled(ImGuiTestRef, const char *, bool)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:478:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:477:33
     t.method("TableSetColumnEnabled", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, const char *, bool) >(&ImGuiTestContext::TableSetColumnEnabled));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::TableResizeColumn(ImGuiTestRef, int, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::TableResizeColumn(ImGuiTestRef, int, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:479:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:478:33
     t.method("TableResizeColumn", static_cast<void (ImGuiTestContext::*)(ImGuiTestRef, int, float) >(&ImGuiTestContext::TableResizeColumn));
 
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::UndockNode(ImGuiID) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::UndockNode(ImGuiID)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:496:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:495:17
     t.method("UndockNode", static_cast<void (ImGuiTestContext::*)(ImGuiID) >(&ImGuiTestContext::UndockNode));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::UndockWindow(const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::UndockWindow(const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:497:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:496:17
     t.method("UndockWindow", static_cast<void (ImGuiTestContext::*)(const char *) >(&ImGuiTestContext::UndockWindow));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestContext::DockIdIsUndockedOrStandalone(ImGuiID) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestContext::DockIdIsUndockedOrStandalone(ImGuiID)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:499:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:498:17
     t.method("DockIdIsUndockedOrStandalone", static_cast<bool (ImGuiTestContext::*)(ImGuiID) >(&ImGuiTestContext::DockIdIsUndockedOrStandalone));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::PerfCalcRef() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::PerfCalcRef()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:504:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:503:17
     t.method("PerfCalcRef", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::PerfCalcRef));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::PerfCapture(const char *, const char *, const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::PerfCapture(const char *, const char *, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:505:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:504:17
     t.method("PerfCapture", static_cast<void (ImGuiTestContext::*)(const char *, const char *, const char *) >(&ImGuiTestContext::PerfCapture));
     t.method("PerfCapture", [](ImGuiTestContext& a)->void { a.PerfCapture(); });
     t.method("PerfCapture", [](ImGuiTestContext& a, const char * arg0)->void { a.PerfCapture(arg0); });
@@ -768,7 +763,7 @@ struct JlImGuiTestContext: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestContext::_ForeignWindowsUnhideAll() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestContext::_ForeignWindowsUnhideAll()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:525:17
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_context.h:524:17
     t.method("_ForeignWindowsUnhideAll", static_cast<void (ImGuiTestContext::*)() >(&ImGuiTestContext::_ForeignWindowsUnhideAll));
 
     DEBUG_MSG("Adding GenericVars methods  to provide read access to the field GenericVars (" __HERE__ ")");
