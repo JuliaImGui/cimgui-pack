@@ -299,7 +299,7 @@ throw_if_version_incompatibility();
   jlModule.set_const("ImGuiTestOpFlags_MoveToEdgeD", ImGuiTestOpFlags_MoveToEdgeD);
 
   DEBUG_MSG("Adding wrapper for enum ImGuiInputSource (" __HERE__ ")");
-  // defined in ../cimgui/imgui/imgui_internal.h:1399:6
+  // defined in ../cimgui/imgui/imgui_internal.h:1403:6
   jlModule.add_bits<ImGuiInputSource>("ImGuiInputSource", jlcxx::julia_type("CppEnum"));
   jlModule.set_const("ImGuiInputSource_None", ImGuiInputSource_None);
   jlModule.set_const("ImGuiInputSource_Mouse", ImGuiInputSource_Mouse);
