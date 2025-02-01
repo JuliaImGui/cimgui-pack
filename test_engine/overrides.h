@@ -43,6 +43,10 @@ inline bool TabBarCompareOrder(ImGuiTestContext* ctx, void* tab_bar, const char*
     return ctx->TabBarCompareOrder(static_cast<ImGuiTabBar*>(tab_bar), tab_order);
 }
 
+inline ImVec2 mkImVec2(float x, float y) {
+    return ImVec2(x, y);
+}
+
 inline jlcxx::Array<ImGuiTest*> TestsAll(ImGuiTestEngine* engine) {
     auto size{ engine->TestsAll.size() };
     jlcxx::Array<ImGuiTest*> tests{ static_cast<size_t>(size) };

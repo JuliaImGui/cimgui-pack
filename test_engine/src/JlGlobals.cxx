@@ -432,9 +432,14 @@ struct JlGlobal: public Wrapper {
     // defined in ./overrides.h:42:13
     t.method("TabBarCompareOrder", static_cast<bool (*)(ImGuiTestContext *, void *, const char **) >(&TabBarCompareOrder));
 
+    DEBUG_MSG("Adding wrapper for ImVec2 mkImVec2(float, float) (" __HERE__ ")");
+    // signature to use in the veto list: ImVec2 mkImVec2(float, float)
+    // defined in ./overrides.h:46:15
+    t.method("mkImVec2", static_cast<ImVec2 (*)(float, float) >(&mkImVec2));
+
     DEBUG_MSG("Adding wrapper for jlcxx::Array<ImGuiTest *> TestsAll(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: jlcxx::Array<ImGuiTest *> TestsAll(ImGuiTestEngine *)
-    // defined in ./overrides.h:46:33
+    // defined in ./overrides.h:50:33
     t.method("TestsAll", static_cast<jlcxx::Array<ImGuiTest *> (*)(ImGuiTestEngine *) >(&TestsAll));
   }
 };
