@@ -17,7 +17,7 @@ struct JlImGuiTestLog: public Wrapper {
 
   JlImGuiTestLog(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type ImGuiTestLog (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:345:18
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:346:18
     jlcxx::TypeWrapper<ImGuiTestLog>  t = jlModule.add_type<ImGuiTestLog>("ImGuiTestLog");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<ImGuiTestLog>>(new jlcxx::TypeWrapper<ImGuiTestLog>(jlModule, t));
   }
@@ -28,17 +28,17 @@ struct JlImGuiTestLog: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestLog::IsEmpty() (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestLog::IsEmpty()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:353:13
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:354:13
     t.method("IsEmpty", static_cast<bool (ImGuiTestLog::*)()  const>(&ImGuiTestLog::IsEmpty));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestLog::Clear() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestLog::Clear()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:354:13
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:355:13
     t.method("Clear", static_cast<void (ImGuiTestLog::*)() >(&ImGuiTestLog::Clear));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestLog::UpdateLineOffsets(ImGuiTestEngineIO *, ImGuiTestVerboseLevel, const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestLog::UpdateLineOffsets(ImGuiTestEngineIO *, ImGuiTestVerboseLevel, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:368:13
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:369:13
     t.method("UpdateLineOffsets", static_cast<void (ImGuiTestLog::*)(ImGuiTestEngineIO *, ImGuiTestVerboseLevel, const char *) >(&ImGuiTestLog::UpdateLineOffsets));
   }
 

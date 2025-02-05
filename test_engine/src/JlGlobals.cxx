@@ -84,57 +84,62 @@ struct JlGlobal: public Wrapper {
     // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:192:31
     t.method("ImGuiTestEngine_UnregisterTest", static_cast<void (*)(ImGuiTestEngine *, ImGuiTest *) >(&ImGuiTestEngine_UnregisterTest));
 
+    DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_UnregisterAllTests(ImGuiTestEngine *) (" __HERE__ ")");
+    // signature to use in the veto list: void ImGuiTestEngine_UnregisterAllTests(ImGuiTestEngine *)
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:193:31
+    t.method("ImGuiTestEngine_UnregisterAllTests", static_cast<void (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_UnregisterAllTests));
+
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_QueueTest(ImGuiTestEngine *, ImGuiTest *, ImGuiTestRunFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_QueueTest(ImGuiTestEngine *, ImGuiTest *, ImGuiTestRunFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:195:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:196:31
     t.method("ImGuiTestEngine_QueueTest", static_cast<void (*)(ImGuiTestEngine *, ImGuiTest *, ImGuiTestRunFlags) >(&ImGuiTestEngine_QueueTest));
     t.method("ImGuiTestEngine_QueueTest", [](ImGuiTestEngine * arg0, ImGuiTest * arg1)->void { ImGuiTestEngine_QueueTest(arg0, arg1); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_QueueTests(ImGuiTestEngine *, ImGuiTestGroup, const char *, ImGuiTestRunFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_QueueTests(ImGuiTestEngine *, ImGuiTestGroup, const char *, ImGuiTestRunFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:196:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:197:31
     t.method("ImGuiTestEngine_QueueTests", static_cast<void (*)(ImGuiTestEngine *, ImGuiTestGroup, const char *, ImGuiTestRunFlags) >(&ImGuiTestEngine_QueueTests));
     t.method("ImGuiTestEngine_QueueTests", [](ImGuiTestEngine * arg0, ImGuiTestGroup arg1)->void { ImGuiTestEngine_QueueTests(arg0, arg1); });
     t.method("ImGuiTestEngine_QueueTests", [](ImGuiTestEngine * arg0, ImGuiTestGroup arg1, const char * arg2)->void { ImGuiTestEngine_QueueTests(arg0, arg1, arg2); });
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestEngine_TryAbortEngine(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestEngine_TryAbortEngine(ImGuiTestEngine *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:197:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:198:31
     t.method("ImGuiTestEngine_TryAbortEngine", static_cast<bool (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_TryAbortEngine));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_AbortCurrentTest(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_AbortCurrentTest(ImGuiTestEngine *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:198:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:199:31
     t.method("ImGuiTestEngine_AbortCurrentTest", static_cast<void (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_AbortCurrentTest));
 
     DEBUG_MSG("Adding wrapper for ImGuiTest * ImGuiTestEngine_FindTestByName(ImGuiTestEngine *, const char *, const char *) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiTest * ImGuiTestEngine_FindTestByName(ImGuiTestEngine *, const char *, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:199:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:200:31
     t.method("ImGuiTestEngine_FindTestByName", static_cast<ImGuiTest * (*)(ImGuiTestEngine *, const char *, const char *) >(&ImGuiTestEngine_FindTestByName));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestEngine_IsTestQueueEmpty(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestEngine_IsTestQueueEmpty(ImGuiTestEngine *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:203:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:204:31
     t.method("ImGuiTestEngine_IsTestQueueEmpty", static_cast<bool (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_IsTestQueueEmpty));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestEngine_IsUsingSimulatedInputs(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestEngine_IsUsingSimulatedInputs(ImGuiTestEngine *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:204:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:205:31
     t.method("ImGuiTestEngine_IsUsingSimulatedInputs", static_cast<bool (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_IsUsingSimulatedInputs));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_GetResult(ImGuiTestEngine *, int &, int &) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_GetResult(ImGuiTestEngine *, int &, int &)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:205:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:206:31
     t.method("ImGuiTestEngine_GetResult", static_cast<void (*)(ImGuiTestEngine *, int &, int &) >(&ImGuiTestEngine_GetResult));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_InstallDefaultCrashHandler() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_InstallDefaultCrashHandler()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:211:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:212:31
     t.method("ImGuiTestEngine_InstallDefaultCrashHandler", static_cast<void (*)() >(&ImGuiTestEngine_InstallDefaultCrashHandler));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_CrashHandler() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_CrashHandler()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:212:31
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:213:31
     t.method("ImGuiTestEngine_CrashHandler", static_cast<void (*)() >(&ImGuiTestEngine_CrashHandler));
 
     DEBUG_MSG("Adding wrapper for ImGuiID ImHashDecoratedPath(const char *, const char *, ImGuiID) (" __HERE__ ")");
@@ -288,72 +293,87 @@ struct JlGlobal: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for ImGuiTestItemInfo * ImGuiTestEngine_FindItemInfo(ImGuiTestEngine *, ImGuiID, const char *) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiTestItemInfo * ImGuiTestEngine_FindItemInfo(ImGuiTestEngine *, ImGuiID, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:214:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:215:21
     t.method("ImGuiTestEngine_FindItemInfo", static_cast<ImGuiTestItemInfo * (*)(ImGuiTestEngine *, ImGuiID, const char *) >(&ImGuiTestEngine_FindItemInfo));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_Yield(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_Yield(ImGuiTestEngine *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:215:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:216:21
     t.method("ImGuiTestEngine_Yield", static_cast<void (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_Yield));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_SetDeltaTime(ImGuiTestEngine *, float) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_SetDeltaTime(ImGuiTestEngine *, float)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:216:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:217:21
     t.method("ImGuiTestEngine_SetDeltaTime", static_cast<void (*)(ImGuiTestEngine *, float) >(&ImGuiTestEngine_SetDeltaTime));
 
     DEBUG_MSG("Adding wrapper for int ImGuiTestEngine_GetFrameCount(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: int ImGuiTestEngine_GetFrameCount(ImGuiTestEngine *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:217:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:218:21
     t.method("ImGuiTestEngine_GetFrameCount", static_cast<int (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_GetFrameCount));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestEngine_PassFilter(ImGuiTest *, const char *) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestEngine_PassFilter(ImGuiTest *, const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:218:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:219:21
     t.method("ImGuiTestEngine_PassFilter", static_cast<bool (*)(ImGuiTest *, const char *) >(&ImGuiTestEngine_PassFilter));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_RunTest(ImGuiTestEngine *, ImGuiTestContext *, ImGuiTest *, ImGuiTestRunFlags) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_RunTest(ImGuiTestEngine *, ImGuiTestContext *, ImGuiTest *, ImGuiTestRunFlags)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:219:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:220:21
     t.method("ImGuiTestEngine_RunTest", static_cast<void (*)(ImGuiTestEngine *, ImGuiTestContext *, ImGuiTest *, ImGuiTestRunFlags) >(&ImGuiTestEngine_RunTest));
+
+    DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_BindImGuiContext(ImGuiTestEngine *, ImGuiContext *) (" __HERE__ ")");
+    // signature to use in the veto list: void ImGuiTestEngine_BindImGuiContext(ImGuiTestEngine *, ImGuiContext *)
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:222:21
+    t.method("ImGuiTestEngine_BindImGuiContext", static_cast<void (*)(ImGuiTestEngine *, ImGuiContext *) >(&ImGuiTestEngine_BindImGuiContext));
+
+    DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_UnbindImGuiContext(ImGuiTestEngine *, ImGuiContext *) (" __HERE__ ")");
+    // signature to use in the veto list: void ImGuiTestEngine_UnbindImGuiContext(ImGuiTestEngine *, ImGuiContext *)
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:223:21
+    t.method("ImGuiTestEngine_UnbindImGuiContext", static_cast<void (*)(ImGuiTestEngine *, ImGuiContext *) >(&ImGuiTestEngine_UnbindImGuiContext));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_RebootUiContext(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestEngine_RebootUiContext(ImGuiTestEngine *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:221:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:225:21
     t.method("ImGuiTestEngine_RebootUiContext", static_cast<void (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_RebootUiContext));
 
     DEBUG_MSG("Adding wrapper for ImGuiPerfTool * ImGuiTestEngine_GetPerfTool(ImGuiTestEngine *) (" __HERE__ ")");
     // signature to use in the veto list: ImGuiPerfTool * ImGuiTestEngine_GetPerfTool(ImGuiTestEngine *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:222:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:226:21
     t.method("ImGuiTestEngine_GetPerfTool", static_cast<ImGuiPerfTool * (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_GetPerfTool));
+
+    DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_UpdateTestsSourceLines(ImGuiTestEngine *) (" __HERE__ ")");
+    // signature to use in the veto list: void ImGuiTestEngine_UpdateTestsSourceLines(ImGuiTestEngine *)
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:227:21
+    t.method("ImGuiTestEngine_UpdateTestsSourceLines", static_cast<void (*)(ImGuiTestEngine *) >(&ImGuiTestEngine_UpdateTestsSourceLines));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestEngine_CaptureScreenshot(ImGuiTestEngine *, ImGuiCaptureArgs *) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestEngine_CaptureScreenshot(ImGuiTestEngine *, ImGuiCaptureArgs *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:225:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:230:21
     t.method("ImGuiTestEngine_CaptureScreenshot", static_cast<bool (*)(ImGuiTestEngine *, ImGuiCaptureArgs *) >(&ImGuiTestEngine_CaptureScreenshot));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestEngine_CaptureBeginVideo(ImGuiTestEngine *, ImGuiCaptureArgs *) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestEngine_CaptureBeginVideo(ImGuiTestEngine *, ImGuiCaptureArgs *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:226:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:231:21
     t.method("ImGuiTestEngine_CaptureBeginVideo", static_cast<bool (*)(ImGuiTestEngine *, ImGuiCaptureArgs *) >(&ImGuiTestEngine_CaptureBeginVideo));
 
     DEBUG_MSG("Adding wrapper for bool ImGuiTestEngine_CaptureEndVideo(ImGuiTestEngine *, ImGuiCaptureArgs *) (" __HERE__ ")");
     // signature to use in the veto list: bool ImGuiTestEngine_CaptureEndVideo(ImGuiTestEngine *, ImGuiCaptureArgs *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:227:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:232:21
     t.method("ImGuiTestEngine_CaptureEndVideo", static_cast<bool (*)(ImGuiTestEngine *, ImGuiCaptureArgs *) >(&ImGuiTestEngine_CaptureEndVideo));
 
     DEBUG_MSG("Adding wrapper for const char * ImGuiTestEngine_GetStatusName(ImGuiTestStatus) (" __HERE__ ")");
     // signature to use in the veto list: const char * ImGuiTestEngine_GetStatusName(ImGuiTestStatus)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:230:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:235:21
     t.method("ImGuiTestEngine_GetStatusName", [](ImGuiTestStatus arg0) { return (std::string)ImGuiTestEngine_GetStatusName(arg0); });
 
     DEBUG_MSG("Adding wrapper for const char * ImGuiTestEngine_GetRunSpeedName(ImGuiTestRunSpeed) (" __HERE__ ")");
     // signature to use in the veto list: const char * ImGuiTestEngine_GetRunSpeedName(ImGuiTestRunSpeed)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:231:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:236:21
     t.method("ImGuiTestEngine_GetRunSpeedName", [](ImGuiTestRunSpeed arg0) { return (std::string)ImGuiTestEngine_GetRunSpeedName(arg0); });
 
     DEBUG_MSG("Adding wrapper for const char * ImGuiTestEngine_GetVerboseLevelName(ImGuiTestVerboseLevel) (" __HERE__ ")");
     // signature to use in the veto list: const char * ImGuiTestEngine_GetVerboseLevelName(ImGuiTestVerboseLevel)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:232:21
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_internal.h:237:21
     t.method("ImGuiTestEngine_GetVerboseLevelName", [](ImGuiTestVerboseLevel arg0) { return (std::string)ImGuiTestEngine_GetVerboseLevelName(arg0); });
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestEngine_PerfToolAppendToCSV(ImGuiPerfTool *, ImGuiPerfToolEntry *, const char *) (" __HERE__ ")");
