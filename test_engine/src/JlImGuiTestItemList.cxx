@@ -17,7 +17,7 @@ struct JlImGuiTestItemList: public Wrapper {
 
   JlImGuiTestItemList(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type ImGuiTestItemList (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:318:18
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:319:18
     jlcxx::TypeWrapper<ImGuiTestItemList>  t = jlModule.add_type<ImGuiTestItemList>("ImGuiTestItemList");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<ImGuiTestItemList>>(new jlcxx::TypeWrapper<ImGuiTestItemList>(jlModule, t));
   }
@@ -28,48 +28,48 @@ struct JlImGuiTestItemList: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestItemList::Clear() (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestItemList::Clear()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:322:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:323:33
     t.method("Clear", static_cast<void (ImGuiTestItemList::*)() >(&ImGuiTestItemList::Clear));
 
     DEBUG_MSG("Adding wrapper for void ImGuiTestItemList::Reserve(int) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTestItemList::Reserve(int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:323:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:324:33
     t.method("Reserve", static_cast<void (ImGuiTestItemList::*)(int) >(&ImGuiTestItemList::Reserve));
 
     DEBUG_MSG("Adding wrapper for int ImGuiTestItemList::GetSize() (" __HERE__ ")");
     // signature to use in the veto list: int ImGuiTestItemList::GetSize()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:324:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:325:33
     t.method("GetSize", static_cast<int (ImGuiTestItemList::*)()  const>(&ImGuiTestItemList::GetSize));
 
     DEBUG_MSG("Adding wrapper for const ImGuiTestItemInfo * ImGuiTestItemList::GetByIndex(int) (" __HERE__ ")");
     // signature to use in the veto list: const ImGuiTestItemInfo * ImGuiTestItemList::GetByIndex(int)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:325:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:326:33
     t.method("GetByIndex", static_cast<const ImGuiTestItemInfo * (ImGuiTestItemList::*)(int) >(&ImGuiTestItemList::GetByIndex));
 
     DEBUG_MSG("Adding wrapper for const ImGuiTestItemInfo * ImGuiTestItemList::GetByID(ImGuiID) (" __HERE__ ")");
     // signature to use in the veto list: const ImGuiTestItemInfo * ImGuiTestItemList::GetByID(ImGuiID)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:326:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:327:33
     t.method("GetByID", static_cast<const ImGuiTestItemInfo * (ImGuiTestItemList::*)(ImGuiID) >(&ImGuiTestItemList::GetByID));
 
     DEBUG_MSG("Adding wrapper for size_t ImGuiTestItemList::size() (" __HERE__ ")");
     // signature to use in the veto list: size_t ImGuiTestItemList::size()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:329:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:330:33
     t.method("size", static_cast<size_t (ImGuiTestItemList::*)()  const>(&ImGuiTestItemList::size));
 
     DEBUG_MSG("Adding wrapper for const ImGuiTestItemInfo * ImGuiTestItemList::begin() (" __HERE__ ")");
     // signature to use in the veto list: const ImGuiTestItemInfo * ImGuiTestItemList::begin()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:330:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:331:33
     t.method("begin", static_cast<const ImGuiTestItemInfo * (ImGuiTestItemList::*)()  const>(&ImGuiTestItemList::begin));
 
     DEBUG_MSG("Adding wrapper for const ImGuiTestItemInfo * ImGuiTestItemList::end() (" __HERE__ ")");
     // signature to use in the veto list: const ImGuiTestItemInfo * ImGuiTestItemList::end()
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:331:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:332:33
     t.method("end", static_cast<const ImGuiTestItemInfo * (ImGuiTestItemList::*)()  const>(&ImGuiTestItemList::end));
     module_.set_override_module(jl_base_module);
 
 
     DEBUG_MSG("Adding getindex method to wrap const ImGuiTestItemInfo * ImGuiTestItemList::operator[](size_t) (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:332:33
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:333:33
     t.method("getindex",
       [](ImGuiTestItemList& a, size_t i){
       return a[i];

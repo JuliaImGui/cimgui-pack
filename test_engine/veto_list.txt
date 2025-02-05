@@ -45,6 +45,7 @@ ImGuiTestEngine::InfoTasks
 # Public symbols that we don't know how to properly wrap
 ImGuiTestItemInfo::Window
 ImGuiTestContext::ForeignWindowsToHide
+ImGuiTestContext::TempString
 ImGuiTestGenericVars::WindowFlags
 ImGuiTestItemInfo::RectFull
 ImGuiTestItemInfo::RectClipped

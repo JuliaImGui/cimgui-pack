@@ -17,7 +17,7 @@ struct JlImGuiTest: public Wrapper {
 
   JlImGuiTest(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type ImGuiTest (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:393:18
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:394:18
     jlcxx::TypeWrapper<ImGuiTest>  t = jlModule.add_type<ImGuiTest>("ImGuiTest");
     type_ = std::unique_ptr<jlcxx::TypeWrapper<ImGuiTest>>(new jlcxx::TypeWrapper<ImGuiTest>(jlModule, t));
   }
@@ -28,29 +28,29 @@ struct JlImGuiTest: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void ImGuiTest::SetOwnedName(const char *) (" __HERE__ ")");
     // signature to use in the veto list: void ImGuiTest::SetOwnedName(const char *)
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:427:10
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:430:10
     t.method("SetOwnedName", static_cast<void (ImGuiTest::*)(const char *) >(&ImGuiTest::SetOwnedName));
 
     DEBUG_MSG("Adding Category methods  to provide read access to the field Category (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:396:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:397:37
     // signature to use in the veto list: ImGuiTest::Category
     t.method("Category", [](const ImGuiTest& a) -> const char * { return a.Category; });
     t.method("Category", [](const ImGuiTest* a) -> const char * { return a->Category; });
 
     DEBUG_MSG("Adding Name methods  to provide read access to the field Name (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:397:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:398:37
     // signature to use in the veto list: ImGuiTest::Name
     t.method("Name", [](const ImGuiTest& a) -> const char * { return a.Name; });
     t.method("Name", [](const ImGuiTest* a) -> const char * { return a->Name; });
 
     DEBUG_MSG("Adding Group methods  to provide read access to the field Group (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:398:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:399:37
     // signature to use in the veto list: ImGuiTest::Group
     t.method("Group", [](const ImGuiTest& a) -> ImGuiTestGroup { return a.Group; });
     t.method("Group", [](ImGuiTest& a) -> ImGuiTestGroup { return a.Group; });
     t.method("Group", [](const ImGuiTest* a) -> ImGuiTestGroup { return a->Group; });
     t.method("Group", [](ImGuiTest* a) -> ImGuiTestGroup { return a->Group; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:398:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:399:37
     // signature to use in the veto list: ImGuiTest::Group
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding Group! methods to provide write access to the field Group (" __HERE__ ")");
@@ -60,13 +60,13 @@ struct JlImGuiTest: public Wrapper {
     t.method("Group!", [](ImGuiTest* a, ImGuiTestGroup val) -> ImGuiTestGroup { return a->Group = val; });
 
     DEBUG_MSG("Adding NameOwned methods  to provide read access to the field NameOwned (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:399:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:400:37
     // signature to use in the veto list: ImGuiTest::NameOwned
     t.method("NameOwned", [](const ImGuiTest& a) -> bool { return a.NameOwned; });
     t.method("NameOwned", [](ImGuiTest& a) -> bool { return a.NameOwned; });
     t.method("NameOwned", [](const ImGuiTest* a) -> bool { return a->NameOwned; });
     t.method("NameOwned", [](ImGuiTest* a) -> bool { return a->NameOwned; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:399:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:400:37
     // signature to use in the veto list: ImGuiTest::NameOwned
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding NameOwned! methods to provide write access to the field NameOwned (" __HERE__ ")");
@@ -75,52 +75,14 @@ struct JlImGuiTest: public Wrapper {
     DEBUG_MSG("Adding NameOwned! methods to provide write access to the field NameOwned (" __HERE__ ")");
     t.method("NameOwned!", [](ImGuiTest* a, bool val) -> bool { return a->NameOwned = val; });
 
-    DEBUG_MSG("Adding SourceFile methods  to provide read access to the field SourceFile (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:400:37
-    // signature to use in the veto list: ImGuiTest::SourceFile
-    t.method("SourceFile", [](const ImGuiTest& a) -> const char * { return a.SourceFile; });
-    t.method("SourceFile", [](const ImGuiTest* a) -> const char * { return a->SourceFile; });
-
-    DEBUG_MSG("Adding SourceLine methods  to provide read access to the field SourceLine (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:401:37
-    // signature to use in the veto list: ImGuiTest::SourceLine
-    t.method("SourceLine", [](const ImGuiTest& a) -> int { return a.SourceLine; });
-    t.method("SourceLine", [](ImGuiTest& a) -> int { return a.SourceLine; });
-    t.method("SourceLine", [](const ImGuiTest* a) -> int { return a->SourceLine; });
-    t.method("SourceLine", [](ImGuiTest* a) -> int { return a->SourceLine; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:401:37
-    // signature to use in the veto list: ImGuiTest::SourceLine
-    // with ! suffix to veto the setter only.
-    DEBUG_MSG("Adding SourceLine! methods to provide write access to the field SourceLine (" __HERE__ ")");
-    t.method("SourceLine!", [](ImGuiTest& a, int val) -> int { return a.SourceLine = val; });
-
-    DEBUG_MSG("Adding SourceLine! methods to provide write access to the field SourceLine (" __HERE__ ")");
-    t.method("SourceLine!", [](ImGuiTest* a, int val) -> int { return a->SourceLine = val; });
-
-    DEBUG_MSG("Adding SourceLineEnd methods  to provide read access to the field SourceLineEnd (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:402:37
-    // signature to use in the veto list: ImGuiTest::SourceLineEnd
-    t.method("SourceLineEnd", [](const ImGuiTest& a) -> int { return a.SourceLineEnd; });
-    t.method("SourceLineEnd", [](ImGuiTest& a) -> int { return a.SourceLineEnd; });
-    t.method("SourceLineEnd", [](const ImGuiTest* a) -> int { return a->SourceLineEnd; });
-    t.method("SourceLineEnd", [](ImGuiTest* a) -> int { return a->SourceLineEnd; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:402:37
-    // signature to use in the veto list: ImGuiTest::SourceLineEnd
-    // with ! suffix to veto the setter only.
-    DEBUG_MSG("Adding SourceLineEnd! methods to provide write access to the field SourceLineEnd (" __HERE__ ")");
-    t.method("SourceLineEnd!", [](ImGuiTest& a, int val) -> int { return a.SourceLineEnd = val; });
-
-    DEBUG_MSG("Adding SourceLineEnd! methods to provide write access to the field SourceLineEnd (" __HERE__ ")");
-    t.method("SourceLineEnd!", [](ImGuiTest* a, int val) -> int { return a->SourceLineEnd = val; });
-
     DEBUG_MSG("Adding ArgVariant methods  to provide read access to the field ArgVariant (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:403:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:401:37
     // signature to use in the veto list: ImGuiTest::ArgVariant
     t.method("ArgVariant", [](const ImGuiTest& a) -> int { return a.ArgVariant; });
     t.method("ArgVariant", [](ImGuiTest& a) -> int { return a.ArgVariant; });
     t.method("ArgVariant", [](const ImGuiTest* a) -> int { return a->ArgVariant; });
     t.method("ArgVariant", [](ImGuiTest* a) -> int { return a->ArgVariant; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:403:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:401:37
     // signature to use in the veto list: ImGuiTest::ArgVariant
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding ArgVariant! methods to provide write access to the field ArgVariant (" __HERE__ ")");
@@ -130,13 +92,13 @@ struct JlImGuiTest: public Wrapper {
     t.method("ArgVariant!", [](ImGuiTest* a, int val) -> int { return a->ArgVariant = val; });
 
     DEBUG_MSG("Adding Flags methods  to provide read access to the field Flags (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:404:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:402:37
     // signature to use in the veto list: ImGuiTest::Flags
     t.method("Flags", [](const ImGuiTest& a) -> ImGuiTestFlags { return a.Flags; });
     t.method("Flags", [](ImGuiTest& a) -> ImGuiTestFlags { return a.Flags; });
     t.method("Flags", [](const ImGuiTest* a) -> ImGuiTestFlags { return a->Flags; });
     t.method("Flags", [](ImGuiTest* a) -> ImGuiTestFlags { return a->Flags; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:404:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:402:37
     // signature to use in the veto list: ImGuiTest::Flags
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding Flags! methods to provide write access to the field Flags (" __HERE__ ")");
@@ -146,13 +108,13 @@ struct JlImGuiTest: public Wrapper {
     t.method("Flags!", [](ImGuiTest* a, ImGuiTestFlags val) -> ImGuiTestFlags { return a->Flags = val; });
 
     DEBUG_MSG("Adding UserData methods  to provide read access to the field UserData (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:407:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:405:37
     // signature to use in the veto list: ImGuiTest::UserData
     t.method("UserData", [](const ImGuiTest& a) -> void * { return a.UserData; });
     t.method("UserData", [](ImGuiTest& a) -> void * { return a.UserData; });
     t.method("UserData", [](const ImGuiTest* a) -> void * { return a->UserData; });
     t.method("UserData", [](ImGuiTest* a) -> void * { return a->UserData; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:407:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:405:37
     // signature to use in the veto list: ImGuiTest::UserData
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding UserData! methods to provide write access to the field UserData (" __HERE__ ")");
@@ -161,14 +123,52 @@ struct JlImGuiTest: public Wrapper {
     DEBUG_MSG("Adding UserData! methods to provide write access to the field UserData (" __HERE__ ")");
     t.method("UserData!", [](ImGuiTest* a, void * val) -> void * { return a->UserData = val; });
 
+    DEBUG_MSG("Adding SourceFile methods  to provide read access to the field SourceFile (" __HERE__ ")");
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:409:37
+    // signature to use in the veto list: ImGuiTest::SourceFile
+    t.method("SourceFile", [](const ImGuiTest& a) -> const char * { return a.SourceFile; });
+    t.method("SourceFile", [](const ImGuiTest* a) -> const char * { return a->SourceFile; });
+
+    DEBUG_MSG("Adding SourceLine methods  to provide read access to the field SourceLine (" __HERE__ ")");
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:410:37
+    // signature to use in the veto list: ImGuiTest::SourceLine
+    t.method("SourceLine", [](const ImGuiTest& a) -> int { return a.SourceLine; });
+    t.method("SourceLine", [](ImGuiTest& a) -> int { return a.SourceLine; });
+    t.method("SourceLine", [](const ImGuiTest* a) -> int { return a->SourceLine; });
+    t.method("SourceLine", [](ImGuiTest* a) -> int { return a->SourceLine; });
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:410:37
+    // signature to use in the veto list: ImGuiTest::SourceLine
+    // with ! suffix to veto the setter only.
+    DEBUG_MSG("Adding SourceLine! methods to provide write access to the field SourceLine (" __HERE__ ")");
+    t.method("SourceLine!", [](ImGuiTest& a, int val) -> int { return a.SourceLine = val; });
+
+    DEBUG_MSG("Adding SourceLine! methods to provide write access to the field SourceLine (" __HERE__ ")");
+    t.method("SourceLine!", [](ImGuiTest* a, int val) -> int { return a->SourceLine = val; });
+
+    DEBUG_MSG("Adding SourceLineEnd methods  to provide read access to the field SourceLineEnd (" __HERE__ ")");
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:411:37
+    // signature to use in the veto list: ImGuiTest::SourceLineEnd
+    t.method("SourceLineEnd", [](const ImGuiTest& a) -> int { return a.SourceLineEnd; });
+    t.method("SourceLineEnd", [](ImGuiTest& a) -> int { return a.SourceLineEnd; });
+    t.method("SourceLineEnd", [](const ImGuiTest* a) -> int { return a->SourceLineEnd; });
+    t.method("SourceLineEnd", [](ImGuiTest* a) -> int { return a->SourceLineEnd; });
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:411:37
+    // signature to use in the veto list: ImGuiTest::SourceLineEnd
+    // with ! suffix to veto the setter only.
+    DEBUG_MSG("Adding SourceLineEnd! methods to provide write access to the field SourceLineEnd (" __HERE__ ")");
+    t.method("SourceLineEnd!", [](ImGuiTest& a, int val) -> int { return a.SourceLineEnd = val; });
+
+    DEBUG_MSG("Adding SourceLineEnd! methods to provide write access to the field SourceLineEnd (" __HERE__ ")");
+    t.method("SourceLineEnd!", [](ImGuiTest* a, int val) -> int { return a->SourceLineEnd = val; });
+
     DEBUG_MSG("Adding Output methods  to provide read access to the field Output (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:412:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:415:37
     // signature to use in the veto list: ImGuiTest::Output
     t.method("Output", [](const ImGuiTest& a) -> const ImGuiTestOutput& { return a.Output; });
     t.method("Output", [](ImGuiTest& a) -> ImGuiTestOutput& { return a.Output; });
     t.method("Output", [](const ImGuiTest* a) -> const ImGuiTestOutput& { return a->Output; });
     t.method("Output", [](ImGuiTest* a) -> ImGuiTestOutput& { return a->Output; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:412:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:415:37
     // signature to use in the veto list: ImGuiTest::Output
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding Output! methods to provide write access to the field Output (" __HERE__ ")");
@@ -178,13 +178,13 @@ struct JlImGuiTest: public Wrapper {
     t.method("Output!", [](ImGuiTest* a, const ImGuiTestOutput& val) -> ImGuiTestOutput& { return a->Output = val; });
 
     DEBUG_MSG("Adding VarsSize methods  to provide read access to the field VarsSize (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:417:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:420:37
     // signature to use in the veto list: ImGuiTest::VarsSize
     t.method("VarsSize", [](const ImGuiTest& a) -> size_t { return a.VarsSize; });
     t.method("VarsSize", [](ImGuiTest& a) -> size_t { return a.VarsSize; });
     t.method("VarsSize", [](const ImGuiTest* a) -> size_t { return a->VarsSize; });
     t.method("VarsSize", [](ImGuiTest* a) -> size_t { return a->VarsSize; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:417:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:420:37
     // signature to use in the veto list: ImGuiTest::VarsSize
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding VarsSize! methods to provide write access to the field VarsSize (" __HERE__ ")");
@@ -194,13 +194,13 @@ struct JlImGuiTest: public Wrapper {
     t.method("VarsSize!", [](ImGuiTest* a, size_t val) -> size_t { return a->VarsSize = val; });
 
     DEBUG_MSG("Adding VarsPostConstructorUserFn methods  to provide read access to the field VarsPostConstructorUserFn (" __HERE__ ")");
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:420:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:423:37
     // signature to use in the veto list: ImGuiTest::VarsPostConstructorUserFn
     t.method("VarsPostConstructorUserFn", [](const ImGuiTest& a) -> void * { return a.VarsPostConstructorUserFn; });
     t.method("VarsPostConstructorUserFn", [](ImGuiTest& a) -> void * { return a.VarsPostConstructorUserFn; });
     t.method("VarsPostConstructorUserFn", [](const ImGuiTest* a) -> void * { return a->VarsPostConstructorUserFn; });
     t.method("VarsPostConstructorUserFn", [](ImGuiTest* a) -> void * { return a->VarsPostConstructorUserFn; });
-    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:420:37
+    // defined in ./imgui_test_engine/imgui_test_engine/imgui_te_engine.h:423:37
     // signature to use in the veto list: ImGuiTest::VarsPostConstructorUserFn
     // with ! suffix to veto the setter only.
     DEBUG_MSG("Adding VarsPostConstructorUserFn! methods to provide write access to the field VarsPostConstructorUserFn (" __HERE__ ")");
