@@ -9,4 +9,4 @@
 	url = https://github.com/cimgui/cimnodes.git
 [submodule "cimgui_test_engine"]
 	path = cimgui_test_engine
-	url = git@github.com:JuliaImGui/cimgui_test_engine.git
+	url = https://github.com/JuliaImGui/cimgui_test_engine.git
