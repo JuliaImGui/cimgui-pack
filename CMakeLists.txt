@@ -29,6 +29,7 @@ target_sources(${target} PRIVATE
   ${TE_DIR}/imgui_te_utils.cpp
   ${TE_DIR}/imgui_capture_tool.cpp
   ${TE_DIR}/imgui_te_exporters.cpp
+  ./cimgui_test_engine/cimgui_te.cpp
 )
 
 # cimplot
@@ -44,8 +45,7 @@ target_sources(${target} PRIVATE ./cimnodes/cimnodes.cpp)
 target_compile_definitions(${target} PRIVATE
   IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1
   IMNODES_NAMESPACE=imnodes
-  IMGUI_ENABLE_TEST_ENGINE
-  IMGUI_TEST_ENGINE_ENABLE_COROUTINE_STDTHREAD_IMPL=0)
+  IMGUI_ENABLE_TEST_ENGINE)
 
 # Find GLFW
 if (NOT DEFINED GLFW_LIBRARY)
@@ -83,7 +83,7 @@ set(hdrs ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui/imgui.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui/imstb_rectpack.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui/imstb_textedit.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui/imstb_truetype.h
-         ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/generator/output/cimgui_impl.h
+         ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/cimgui_impl.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/cimgui.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimplot/implot/implot.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimplot/implot/implot_internal.h
