@@ -45,7 +45,8 @@ target_sources(${target} PRIVATE ./cimnodes/cimnodes.cpp)
 target_compile_definitions(${target} PRIVATE
   IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1
   IMNODES_NAMESPACE=imnodes
-  IMGUI_ENABLE_TEST_ENGINE)
+  IMGUI_ENABLE_TEST_ENGINE
+  IMGUI_TEST_ENGINE_ENABLE_CAPTURE=1)
 
 # Find GLFW
 if (NOT DEFINED GLFW_LIBRARY)
