@@ -25,7 +25,8 @@ cd(@__DIR__) do
 
     cd("build") do
         run(`cmake -DCMAKE_BUILD_TYPE=Release
-                   -DGLFW_LIBRARY=$(GLFW_jll.libglfw) ..`)
+                   -DGLFW_LIBRARY=$(GLFW_jll.libglfw)
+                   -DGLFW_INCLUDE=$(GLFW_jll.artifact_dir)/include ..`)
         nprocs = Sys.CPU_THREADS
         run(`cmake --build . -j$(nprocs)`)
     end
