@@ -8,6 +8,10 @@ set(target cimgui)
 
 add_library(${target} SHARED)
 
+# Need this because downstream code that uses the C++ ImGui:: API directly
+# (e.g. other JLLs like CImPlot3D_jll) will otherwise fail to link against it.
+set_target_properties(${target} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 # cimgui and the backends
 target_sources(${target} PRIVATE ./cimgui/imgui/imgui.cpp)
 target_sources(${target} PRIVATE ./cimgui/imgui/imgui_demo.cpp)
