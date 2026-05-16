@@ -8,6 +8,10 @@ set(target cimgui)
 
 add_library(${target} SHARED)
 
+# Need this because downstream code that uses the C++ ImGui:: API directly
+# (e.g. other JLLs like CImPlot3D_jll) will otherwise fail to link against it.
+set_target_properties(${target} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 # cimgui and the backends
 target_sources(${target} PRIVATE ./cimgui/imgui/imgui.cpp)
 target_sources(${target} PRIVATE ./cimgui/imgui/imgui_demo.cpp)
@@ -53,6 +57,10 @@ if (NOT DEFINED GLFW_LIBRARY)
   find_package(glfw3 3.1 REQUIRED)
   set(GLFW_LIBRARY "glfw")
 endif()
+if (DEFINED GLFW_INCLUDE)
+  target_include_directories(${target} PRIVATE "${GLFW_INCLUDE}")
+endif()
+
 target_link_libraries(${target} "${GLFW_LIBRARY}")
 
 if (WIN32)
