@@ -8,10 +8,6 @@ set(target cimgui)
 
 add_library(${target} SHARED)
 
-# Need this because downstream code that uses the C++ ImGui:: API directly
-# (e.g. other JLLs like CImPlot3D_jll) will otherwise fail to link against it.
-set_target_properties(${target} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
-
 # cimgui and the backends
 target_sources(${target} PRIVATE ./cimgui/imgui/imgui.cpp)
 target_sources(${target} PRIVATE ./cimgui/imgui/imgui_demo.cpp)
@@ -65,6 +61,10 @@ target_link_libraries(${target} "${GLFW_LIBRARY}")
 
 if (WIN32)
   add_definitions("-DIMGUI_IMPL_API=extern \"C\" __declspec\(dllexport\)")
+  # GNU ld auto-exports all symbols only while *no* symbol is explicitly
+  # dllexport'd. IMGUI_IMPL_API/CIMGUI_API above trip that, which stops the
+  # bare C++ ImGui:: API from being exported. So decorate it explicitly too.
+  target_compile_definitions(${target} PRIVATE "IMGUI_API=__declspec(dllexport)")
   target_link_libraries(${target} imm32 opengl32)
 elseif(APPLE)
   add_definitions("-DIMGUI_IMPL_API=extern \"C\" ")
