@@ -1,4 +1,5 @@
 import GLFW_jll
+import FreeType2_jll
 
 output_dir = joinpath(@__DIR__, "cimgui_comments_output")
 if !isdir(output_dir)
@@ -24,9 +25,19 @@ cd(@__DIR__) do
     end
 
     cd("build") do
+        # FreeType is required by CMakeLists.txt. `ft2build.h` lives in
+        # `include/freetype2`, and the headers it pulls in reference each
+        # other from `include`, so both are passed.
+        freetype_include = let dir = joinpath(FreeType2_jll.artifact_dir, "include")
+            freetype2_dir = joinpath(dir, "freetype2")
+            "$(dir);$(freetype2_dir)"
+        end
+
         run(`cmake -DCMAKE_BUILD_TYPE=Release
                    -DGLFW_LIBRARY=$(GLFW_jll.libglfw)
-                   -DGLFW_INCLUDE=$(GLFW_jll.artifact_dir)/include ..`)
+                   -DGLFW_INCLUDE=$(GLFW_jll.artifact_dir)/include
+                   -DFREETYPE_LIBRARY=$(FreeType2_jll.libfreetype)
+                   -DFREETYPE_INCLUDE_DIRS=$(freetype_include) ..`)
         nprocs = Sys.CPU_THREADS
         run(`cmake --build . -j$(nprocs)`)
     end
