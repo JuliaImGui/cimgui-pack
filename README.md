@@ -9,7 +9,7 @@ related packages:
 
 The versions have been picked so that they're all compatible with each other,
 i.e. matching the latest ImGui version. The currently supported ImGui version
-is: [*v1.92.8*](https://github.com/ocornut/imgui/releases/tag/v1.92.8).
+is: [*v1.92.9b*](https://github.com/ocornut/imgui/releases/tag/v1.92.9b).
 
 You can build the resulting shared library locally with:
 ```julia-repl
