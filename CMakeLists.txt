@@ -18,6 +18,15 @@ target_sources(${target} PRIVATE ./cimgui/imgui/backends/imgui_impl_glfw.cpp)
 target_sources(${target} PRIVATE ./cimgui/imgui/backends/imgui_impl_opengl3.cpp)
 target_sources(${target} PRIVATE ./cimgui/cimgui.cpp)
 
+# Enable freetype:
+# https://github.com/ocornut/imgui/blob/master/docs/FONTS.md#using-freetype-rasterizer-imgui_freetype
+target_sources(${target} PRIVATE ./cimgui/imgui/misc/freetype/imgui_freetype.cpp)
+target_include_directories(${target} PRIVATE ./cimgui/imgui/misc/freetype)
+target_compile_definitions(${target} PRIVATE
+    IMGUI_ENABLE_FREETYPE
+    IMGUI_ENABLE_STB_TRUETYPE
+    IMGUI_USE_WCHAR32)
+
 # imgui_test_engine
 set(TE_DIR "cimgui_test_engine/imgui_test_engine/imgui_test_engine")
 target_sources(${target} PRIVATE
@@ -59,6 +68,15 @@ endif()
 
 target_link_libraries(${target} "${GLFW_LIBRARY}")
 
+# Find FreeType
+if(DEFINED FREETYPE_INCLUDE_DIRS AND DEFINED FREETYPE_LIBRARY)
+    target_include_directories(${target} PRIVATE ${FREETYPE_INCLUDE_DIRS})
+    target_link_libraries(${target} ${FREETYPE_LIBRARY})
+else()
+    find_package(Freetype REQUIRED)
+    target_link_libraries(${target} Freetype::Freetype)
+endif()
+
 if (WIN32)
   add_definitions("-DIMGUI_IMPL_API=extern \"C\" __declspec\(dllexport\)")
   # GNU ld auto-exports all symbols only while *no* symbol is explicitly
@@ -94,6 +112,7 @@ set(hdrs ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui/imgui.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui/imstb_truetype.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/cimgui_impl.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/cimgui.h
+         ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui/misc/freetype/imgui_freetype.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimplot/implot/implot.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimplot/implot/implot_internal.h
          ${CMAKE_CURRENT_SOURCE_DIR}/cimplot/cimplot.h
