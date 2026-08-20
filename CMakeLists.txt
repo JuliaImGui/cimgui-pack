@@ -129,6 +129,15 @@ install(TARGETS ${target}
         ARCHIVE DESTINATION lib
         PUBLIC_HEADER DESTINATION include)
 
+# PUBLIC_HEADER flattens everything into include/, but under
+# IMGUI_ENABLE_FREETYPE cimgui.h does
+#     #include "./imgui/misc/freetype/imgui_freetype.h"
+# which is resolved relative to cimgui.h itself. Install a second copy at that
+# path so the installed cimgui.h is self-contained for downstream consumers like
+# CImPlot3D_jll and imgui_node_editor_jll.
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui/misc/freetype/imgui_freetype.h
+        DESTINATION include/imgui/misc/freetype)
+
 install(EXPORT ${target}Targets
         NAMESPACE ${target}::
         FILE ${target}-config.cmake
