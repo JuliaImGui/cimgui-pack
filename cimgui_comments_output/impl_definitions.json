@@ -591,7 +591,7 @@
       "cimguiname": "ImGui_ImplOpenGL3_CreateDeviceObjects",
       "defaults": {},
       "funcname": "ImGui_ImplOpenGL3_CreateDeviceObjects",
-      "location": "imgui_impl_opengl3:41",
+      "location": "imgui_impl_opengl3:42",
       "ov_cimguiname": "ImGui_ImplOpenGL3_CreateDeviceObjects",
       "ret": "bool",
       "signature": "()",
@@ -607,7 +607,7 @@
       "cimguiname": "ImGui_ImplOpenGL3_DestroyDeviceObjects",
       "defaults": {},
       "funcname": "ImGui_ImplOpenGL3_DestroyDeviceObjects",
-      "location": "imgui_impl_opengl3:42",
+      "location": "imgui_impl_opengl3:43",
       "ov_cimguiname": "ImGui_ImplOpenGL3_DestroyDeviceObjects",
       "ret": "void",
       "signature": "()",
@@ -623,7 +623,7 @@
       "cimguiname": "ImGui_ImplOpenGL3_GetRenderState",
       "defaults": {},
       "funcname": "ImGui_ImplOpenGL3_GetRenderState",
-      "location": "imgui_impl_opengl3:80",
+      "location": "imgui_impl_opengl3:83",
       "ov_cimguiname": "ImGui_ImplOpenGL3_GetRenderState",
       "ret": "ImGui_ImplOpenGL3_RenderState*",
       "signature": "()",
@@ -646,7 +646,7 @@
         "glsl_version": "nullptr"
       },
       "funcname": "ImGui_ImplOpenGL3_Init",
-      "location": "imgui_impl_opengl3:35",
+      "location": "imgui_impl_opengl3:36",
       "ov_cimguiname": "ImGui_ImplOpenGL3_Init",
       "ret": "bool",
       "signature": "(const char*)",
@@ -662,7 +662,7 @@
       "cimguiname": "ImGui_ImplOpenGL3_NewFrame",
       "defaults": {},
       "funcname": "ImGui_ImplOpenGL3_NewFrame",
-      "location": "imgui_impl_opengl3:37",
+      "location": "imgui_impl_opengl3:38",
       "ov_cimguiname": "ImGui_ImplOpenGL3_NewFrame",
       "ret": "void",
       "signature": "()",
@@ -683,10 +683,31 @@
       "cimguiname": "ImGui_ImplOpenGL3_RenderDrawData",
       "defaults": {},
       "funcname": "ImGui_ImplOpenGL3_RenderDrawData",
-      "location": "imgui_impl_opengl3:38",
+      "location": "imgui_impl_opengl3:39",
       "ov_cimguiname": "ImGui_ImplOpenGL3_RenderDrawData",
       "ret": "void",
       "signature": "(ImDrawData*)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplOpenGL3_SetClipOrigin": [
+    {
+      "args": "(unsigned int gl_clip_origin)",
+      "argsT": [
+        {
+          "name": "gl_clip_origin",
+          "type": "unsigned int"
+        }
+      ],
+      "argsoriginal": "(unsigned int gl_clip_origin)",
+      "call_args": "(gl_clip_origin)",
+      "cimguiname": "ImGui_ImplOpenGL3_SetClipOrigin",
+      "defaults": {},
+      "funcname": "ImGui_ImplOpenGL3_SetClipOrigin",
+      "location": "imgui_impl_opengl3:49",
+      "ov_cimguiname": "ImGui_ImplOpenGL3_SetClipOrigin",
+      "ret": "void",
+      "signature": "(unsigned int)",
       "stname": ""
     }
   ],
@@ -699,7 +720,7 @@
       "cimguiname": "ImGui_ImplOpenGL3_Shutdown",
       "defaults": {},
       "funcname": "ImGui_ImplOpenGL3_Shutdown",
-      "location": "imgui_impl_opengl3:36",
+      "location": "imgui_impl_opengl3:37",
       "ov_cimguiname": "ImGui_ImplOpenGL3_Shutdown",
       "ret": "void",
       "signature": "()",
@@ -720,7 +741,7 @@
       "cimguiname": "ImGui_ImplOpenGL3_UpdateTexture",
       "defaults": {},
       "funcname": "ImGui_ImplOpenGL3_UpdateTexture",
-      "location": "imgui_impl_opengl3:45",
+      "location": "imgui_impl_opengl3:46",
       "ov_cimguiname": "ImGui_ImplOpenGL3_UpdateTexture",
       "ret": "void",
       "signature": "(ImTextureData*)",

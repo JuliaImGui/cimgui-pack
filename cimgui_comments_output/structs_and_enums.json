@@ -3,9 +3,6 @@
     "ImDrawFlags_": {
       "above": "// Flags for ImDrawList functions"
     },
-    "ImDrawListFlags_": {
-      "above": "// Flags for ImDrawList instance. Those are set automatically by ImGui:: functions from ImGuiIO settings, and generally not manipulated directly.\n// It is however possible to temporarily alter flags between calls to ImDrawList:: functions."
-    },
     "ImDrawTextFlags_": {
       "above": "// Helpers: High-level text functions (DO NOT USE!!! THIS IS A MINIMAL SUBSET OF LARGER UPCOMING CHANGES)"
     },
@@ -35,9 +32,6 @@
     },
     "ImGuiColorEditFlags_": {
       "above": "// Flags for ColorEdit3() / ColorEdit4() / ColorPicker3() / ColorPicker4() / ColorButton()"
-    },
-    "ImGuiComboFlagsPrivate_": {
-      "above": "// Extend ImGuiComboFlags_"
     },
     "ImGuiComboFlags_": {
       "above": "// Flags for ImGui::BeginCombo()"
@@ -223,119 +217,178 @@
       },
       {
         "calc_value": 16,
-        "comment": "// Round top-left corner only (when rounding > 0.0f, we default to all corners).",
-        "name": "ImDrawFlags_RoundCornersTopLeft",
+        "comment": "// OK   --    // Round top-left corner only (when 'rounding > 0.0f', we default to all corners).",
+        "name": "ImDrawFlags_RoundTopLeft",
         "value": "1 << 4"
       },
       {
         "calc_value": 32,
-        "comment": "// Round top-right corner only (when rounding > 0.0f, we default to all corners).",
-        "name": "ImDrawFlags_RoundCornersTopRight",
+        "comment": "// OK   --    // Round top-right corner only (when 'rounding > 0.0f', we default to all corners).",
+        "name": "ImDrawFlags_RoundTopRight",
         "value": "1 << 5"
       },
       {
         "calc_value": 64,
-        "comment": "// Round bottom-left corner only (when rounding > 0.0f, we default to all corners).",
-        "name": "ImDrawFlags_RoundCornersBottomLeft",
+        "comment": "// OK   --    // Round bottom-left corner only (when 'rounding > 0.0f', we default to all corners).",
+        "name": "ImDrawFlags_RoundBottomLeft",
         "value": "1 << 6"
       },
       {
         "calc_value": 128,
-        "comment": "// Round bottom-right corner only (when rounding > 0.0f, we default to all corners).",
-        "name": "ImDrawFlags_RoundCornersBottomRight",
+        "comment": "// OK   --    // Round bottom-right corner only (when 'rounding > 0.0f', we default to all corners).",
+        "name": "ImDrawFlags_RoundBottomRight",
         "value": "1 << 7"
       },
       {
         "calc_value": 256,
-        "comment": "// Disable rounding even if `float rounding > 0.0f`. This is NOT zero, NOT an implicit flag!",
-        "name": "ImDrawFlags_RoundCornersNone",
+        "comment": "// OK   --    // Disable rounding even when 'rounding > 0.0f'. This value is NOT zero, it is NOT an implicit flag!",
+        "name": "ImDrawFlags_RoundNone",
         "value": "1 << 8"
       },
       {
         "calc_value": 240,
         "comment": "// (Default!!)",
-        "name": "ImDrawFlags_RoundCornersAll",
-        "value": "ImDrawFlags_RoundCornersTopLeft | ImDrawFlags_RoundCornersTopRight | ImDrawFlags_RoundCornersBottomLeft | ImDrawFlags_RoundCornersBottomRight"
-      },
-      {
-        "calc_value": 240,
-        "comment": "// Default to ALL corners if none of the _RoundCornersXX flags are specified!",
-        "name": "ImDrawFlags_RoundCornersDefault_",
-        "value": "ImDrawFlags_RoundCornersAll"
+        "name": "ImDrawFlags_RoundAll",
+        "value": "ImDrawFlags_RoundTopLeft | ImDrawFlags_RoundTopRight | ImDrawFlags_RoundBottomLeft | ImDrawFlags_RoundBottomRight"
       },
       {
         "calc_value": 48,
-        "name": "ImDrawFlags_RoundCornersTop",
-        "value": "ImDrawFlags_RoundCornersTopLeft | ImDrawFlags_RoundCornersTopRight"
+        "name": "ImDrawFlags_RoundTop",
+        "value": "ImDrawFlags_RoundTopLeft | ImDrawFlags_RoundTopRight"
       },
       {
         "calc_value": 192,
-        "name": "ImDrawFlags_RoundCornersBottom",
-        "value": "ImDrawFlags_RoundCornersBottomLeft | ImDrawFlags_RoundCornersBottomRight"
+        "name": "ImDrawFlags_RoundBottom",
+        "value": "ImDrawFlags_RoundBottomLeft | ImDrawFlags_RoundBottomRight"
       },
       {
         "calc_value": 80,
-        "name": "ImDrawFlags_RoundCornersLeft",
-        "value": "ImDrawFlags_RoundCornersBottomLeft | ImDrawFlags_RoundCornersTopLeft"
+        "name": "ImDrawFlags_RoundLeft",
+        "value": "ImDrawFlags_RoundBottomLeft | ImDrawFlags_RoundTopLeft"
       },
       {
         "calc_value": 160,
-        "name": "ImDrawFlags_RoundCornersRight",
-        "value": "ImDrawFlags_RoundCornersBottomRight | ImDrawFlags_RoundCornersTopRight"
-      },
-      {
-        "calc_value": 496,
-        "name": "ImDrawFlags_RoundCornersMask_",
-        "value": "ImDrawFlags_RoundCornersAll | ImDrawFlags_RoundCornersNone"
+        "name": "ImDrawFlags_RoundRight",
+        "value": "ImDrawFlags_RoundBottomRight | ImDrawFlags_RoundTopRight"
       },
       {
         "calc_value": 512,
-        "comment": "// PathStroke(), AddPolyline(): specify that shape should be closed.",
+        "comment": "// OK   --     // PathStroke(), AddPolyline(): specify that shape should be closed.",
         "name": "ImDrawFlags_Closed",
         "value": "1 << 9"
       },
       {
+        "calc_value": 1024,
+        "comment": "// OK   --     // PathStroke(), AddPolyline(): use miter joins/corners only. This assumes that the input polyline does not have corners sharper than 90 degrees. Slightly faster.",
+        "name": "ImDrawFlags_JoinMiter",
+        "value": "1 << 10"
+      },
+      {
+        "calc_value": 2048,
+        "comment": "// OK   --     // PathStroke(), AddPolyline(): use square cap line ends.",
+        "name": "ImDrawFlags_CapSquare",
+        "value": "1 << 11"
+      },
+      {
+        "calc_value": 4096,
+        "comment": "// OK*  OK(1)  // Enable anti-aliasing for Filled shapes.",
+        "name": "ImDrawFlags_AAFill",
+        "value": "1 << 12"
+      },
+      {
+        "calc_value": 8192,
+        "comment": "// OK*  OK(1)  // Enable anti-aliasing for Strokes (lines, borders).",
+        "name": "ImDrawFlags_AALines",
+        "value": "1 << 13"
+      },
+      {
+        "calc_value": 16384,
+        "comment": "// OK   OK(0)  // Enable anti-aliasing for Strokes Ends. Requires AALines to also be enabled. Useful on thick strokes or for precise continuity of multiple lines. A little more costly.",
+        "name": "ImDrawFlags_AALineEnds",
+        "value": "1 << 14"
+      },
+      {
+        "calc_value": 131072,
+        "comment": "// OK   --     // Draw stroke inside of the shape outline (default for closed shapes and AddLineH, AddLineV functions)",
+        "name": "ImDrawFlags_StrokeInside",
+        "value": "1 << 17"
+      },
+      {
+        "calc_value": 262144,
+        "comment": "// OK   --     // Draw stroke at the center of the shape outline (default for paths, bezier, and AddLine functions)",
+        "name": "ImDrawFlags_StrokeCenter",
+        "value": "2 << 17"
+      },
+      {
+        "calc_value": 393216,
+        "comment": "// OK   --     // Draw stroke at the center of the shape outline, so that half thickness rounded down will be outside, and the rest inside the shape outline. Useful for axis-aligned shapes: AddLineH, AddLineV, AddRect. Does not animate well!",
+        "name": "ImDrawFlags_StrokeCenterBiased",
+        "value": "3 << 17"
+      },
+      {
+        "calc_value": 524288,
+        "comment": "// OK   --     // Draw stroke outside of the shape outline",
+        "name": "ImDrawFlags_StrokeOutside",
+        "value": "4 << 17"
+      },
+      {
+        "calc_value": 917504,
+        "comment": "// OK   OK(0)  // Use legacy positioning + enable JoinMiter + disable AALineEnds. Must be all bits set.",
+        "name": "ImDrawFlags_StrokeLegacy",
+        "value": "7 << 17"
+      },
+      {
+        "calc_value": 1048576,
+        "comment": "// OK   OK(0)  // Disable automatically snapping AddText() calls to pixel boundaries.",
+        "name": "ImDrawFlags_TextNoPixelSnap",
+        "value": "1 << 20"
+      },
+      {
+        "calc_value": 2097152,
+        "comment": "// --   OK(1)  // Enable using textures instead of strokes to draw rounded corners/circles where possible (faster). Used by default unless 'ImFontAtlasFlags_NoBakedRoundCorners' is enabled in the font atlas.",
+        "name": "ImDrawFlags_UseTexForRoundCorners",
+        "value": "1 << 21"
+      },
+      {
+        "calc_value": 4194304,
+        "comment": "// --   OK(1)  // Can emit 'VtxOffset > 0' to allow large meshes with 16-bit ImDrawIdx. Used by default when 'ImGuiBackendFlags_RendererHasVtxOffset' is enabled by the backend.",
+        "name": "ImDrawFlags_UseVtxOffset",
+        "value": "1 << 22"
+      },
+      {
+        "calc_value": 8388608,
+        "comment": "// --   OK(1)  // [Internal]",
+        "name": "ImDrawFlags_AllowTexForRoundCorners_",
+        "value": "1 << 23"
+      },
+      {
+        "calc_value": 496,
+        "comment": "// [Internal]",
+        "name": "ImDrawFlags_RoundMask_",
+        "value": "ImDrawFlags_RoundAll | ImDrawFlags_RoundNone"
+      },
+      {
+        "calc_value": 8286704,
+        "comment": "// [Internal] Values allowed in PushDrawFlag() scope.",
+        "name": "ImDrawFlags_AllowInPushScope_",
+        "value": "ImDrawFlags_AAFill | ImDrawFlags_AALines | ImDrawFlags_AALineEnds | ImDrawFlags_StrokeLegacy | ImDrawFlags_TextNoPixelSnap | ImDrawFlags_UseTexForRoundCorners | ImDrawFlags_UseVtxOffset | ImDrawFlags_RoundMask_"
+      },
+      {
+        "calc_value": 16675312,
+        "name": "ImDrawFlags_AllowInFrameScope_",
+        "value": "ImDrawFlags_AllowInPushScope_ | ImDrawFlags_AllowTexForRoundCorners_"
+      },
+      {
+        "calc_value": 917504,
+        "comment": "// [Internal]",
+        "name": "ImDrawFlags_StrokeMask_",
+        "value": "0x07 << 17"
+      },
+      {
         "calc_value": -2147483633,
-        "comment": "// == 0x8000000F,",
+        "comment": "// [Internal] == 0x8000000F. Reserved to detect misuses.",
         "name": "ImDrawFlags_InvalidMask_",
         "value": "~0x7FFFFFF0"
-      }
-    ],
-    "ImDrawListFlags_": [
-      {
-        "calc_value": 0,
-        "name": "ImDrawListFlags_None",
-        "value": "0"
-      },
-      {
-        "calc_value": 1,
-        "comment": "// Enable anti-aliased lines/borders (*2 the number of triangles for 1.0f wide line or lines thin enough to be drawn using textures, otherwise *3 the number of triangles)",
-        "name": "ImDrawListFlags_AntiAliasedLines",
-        "value": "1 << 0"
-      },
-      {
-        "calc_value": 2,
-        "comment": "// Enable anti-aliased lines/borders using textures when possible. Require backend to render with bilinear filtering (NOT point/nearest filtering).",
-        "name": "ImDrawListFlags_AntiAliasedLinesUseTex",
-        "value": "1 << 1"
-      },
-      {
-        "calc_value": 4,
-        "comment": "// Enable anti-aliased edge around filled shapes (rounded rectangles, circles).",
-        "name": "ImDrawListFlags_AntiAliasedFill",
-        "value": "1 << 2"
-      },
-      {
-        "calc_value": 8,
-        "comment": "// Can emit 'VtxOffset > 0' to allow large meshes. Set when 'ImGuiBackendFlags_RendererHasVtxOffset' is enabled.",
-        "name": "ImDrawListFlags_AllowVtxOffset",
-        "value": "1 << 3"
-      },
-      {
-        "calc_value": 16,
-        "comment": "// Disable automatically snapping AddText() calls to pixel boundaries.",
-        "name": "ImDrawListFlags_TextNoPixelSnap",
-        "value": "1 << 4"
       }
     ],
     "ImDrawTextFlags_": [
@@ -381,9 +434,15 @@
       },
       {
         "calc_value": 4,
-        "comment": "// Don't build thick line textures into the atlas (save a little texture memory, allow support for point/nearest filtering). The AntiAliasedLinesUseTex features uses them, otherwise they will be rendered using polygons (more expensive for CPU/GPU).",
+        "comment": "// Don't build anti-aliased line textures into the atlas (save a little texture memory). SINCE 1.93.0 THIS PREVENTS ANTI-ALIASED LINES FROM WORKING AND WILL DISABLE THEM.",
         "name": "ImFontAtlasFlags_NoBakedLines",
         "value": "1 << 2"
+      },
+      {
+        "calc_value": 8,
+        "comment": "// Don't build round corners into the atlas.",
+        "name": "ImFontAtlasFlags_NoBakedRoundCorners",
+        "value": "1 << 3"
       }
     ],
     "ImFontFlags_": [
@@ -1293,14 +1352,6 @@
         "calc_value": 805306368,
         "name": "ImGuiColorEditFlags_InputMask_",
         "value": "ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_InputHSV"
-      }
-    ],
-    "ImGuiComboFlagsPrivate_": [
-      {
-        "calc_value": 1048576,
-        "comment": "// enable BeginComboPreview()",
-        "name": "ImGuiComboFlags_CustomPreview",
-        "value": "1 << 20"
       }
     ],
     "ImGuiComboFlags_": [
@@ -2720,12 +2771,6 @@
         "value": "1 << 11"
       },
       {
-        "calc_value": 4096,
-        "comment": "// false     // [BETA] Represent a mixed/indeterminate value, generally multi-selection where values differ. Currently only supported by Checkbox() (later should support all sorts of widgets)",
-        "name": "ImGuiItemFlags_MixedValue",
-        "value": "1 << 12"
-      },
-      {
         "calc_value": 8192,
         "comment": "// false     // Disable hoverable check in ItemHoverable()",
         "name": "ImGuiItemFlags_NoWindowHoverableCheck",
@@ -2845,6 +2890,12 @@
         "calc_value": 384,
         "name": "ImGuiItemFlags_LiveEditOnInput",
         "value": "ImGuiItemFlags_LiveEditOnInputText | ImGuiItemFlags_LiveEditOnInputScalar"
+      },
+      {
+        "calc_value": 512,
+        "comment": "// false    // [BETA] Represent a mixed/indeterminate value. Replace value label with \"-\" and apply edits on validation.",
+        "name": "ImGuiItemFlags_MixedValue",
+        "value": "1 << 9"
       }
     ],
     "ImGuiItemStatusFlags_": [
@@ -6410,229 +6461,227 @@
     "ImGuiSortDirection": "ImU8"
   },
   "locations": {
-    "ImBitVector": "imgui_internal:682",
-    "ImColor": "imgui:3139",
-    "ImDrawChannel": "imgui:3390",
-    "ImDrawCmd": "imgui:3346",
-    "ImDrawCmdHeader": "imgui:3382",
-    "ImDrawData": "imgui:3629",
-    "ImDrawDataBuilder": "imgui_internal:928",
-    "ImDrawFlags_": "imgui:3414",
-    "ImDrawList": "imgui:3461",
-    "ImDrawListFlags_": "imgui:3442",
-    "ImDrawListSharedData": "imgui_internal:901",
-    "ImDrawListSplitter": "imgui:3398",
-    "ImDrawTextFlags_": "imgui_internal:451",
-    "ImDrawVert": "imgui:3367",
-    "ImFont": "imgui:4064",
-    "ImFontAtlas": "imgui:3862",
-    "ImFontAtlasBuilder": "imgui_internal:4285",
-    "ImFontAtlasFlags_": "imgui:3835",
-    "ImFontAtlasPostProcessData": "imgui_internal:4258",
-    "ImFontAtlasRect": "imgui:3825",
-    "ImFontAtlasRectEntry": "imgui_internal:4250",
-    "ImFontBaked": "imgui:4015",
-    "ImFontConfig": "imgui:3744",
-    "ImFontFlags_": "imgui:4050",
-    "ImFontGlyph": "imgui:3787",
-    "ImFontGlyphRangesBuilder": "imgui:3803",
-    "ImFontLoader": "imgui_internal:4199",
-    "ImFontStackData": "imgui_internal:936",
-    "ImGuiActivateFlags_": "imgui_internal:1741",
-    "ImGuiAxis": "imgui_internal:1185",
-    "ImGuiBackendFlags_": "imgui:1822",
-    "ImGuiBoxSelectState": "imgui_internal:1933",
-    "ImGuiButtonFlagsPrivate_": "imgui_internal:1073",
-    "ImGuiButtonFlags_": "imgui:1974",
-    "ImGuiChildFlags_": "imgui:1267",
-    "ImGuiCol_": "imgui:1839",
-    "ImGuiColorEditFlags_": "imgui:1986",
-    "ImGuiColorMod": "imgui_internal:956",
-    "ImGuiComboFlagsPrivate_": "imgui_internal:1099",
-    "ImGuiComboFlags_": "imgui:1443",
-    "ImGuiComboPreviewData": "imgui_internal:1199",
-    "ImGuiCond_": "imgui:2107",
-    "ImGuiConfigFlags_": "imgui:1794",
-    "ImGuiContext": "imgui_internal:2444",
-    "ImGuiContextHook": "imgui_internal:2427",
-    "ImGuiContextHookType": "imgui_internal:2425",
-    "ImGuiDataAuthority_": "imgui_internal:2049",
-    "ImGuiDataTypeInfo": "imgui_internal:982",
-    "ImGuiDataTypePrivate_": "imgui_internal:991",
-    "ImGuiDataTypeStorage": "imgui_internal:976",
-    "ImGuiDataType_": "imgui:1599",
-    "ImGuiDeactivatedItemData": "imgui_internal:1506",
-    "ImGuiDebugAllocEntry": "imgui_internal:2347",
-    "ImGuiDebugAllocInfo": "imgui_internal:2354",
-    "ImGuiDebugItemPathQuery": "imgui_internal:2396",
-    "ImGuiDebugLogFlags_": "imgui_internal:2323",
-    "ImGuiDir": "imgui:1617",
-    "ImGuiDockContext": "imgui_internal:2152",
-    "ImGuiDockNode": "imgui_internal:2065",
-    "ImGuiDockNodeFlagsPrivate_": "imgui_internal:2017",
-    "ImGuiDockNodeFlags_": "imgui:1551",
-    "ImGuiDockNodeState": "imgui_internal:2056",
-    "ImGuiDragDropFlags_": "imgui:1570",
-    "ImGuiErrorRecoveryState": "imgui_internal:1461",
-    "ImGuiFocusRequestFlags_": "imgui_internal:1145",
-    "ImGuiFocusScopeData": "imgui_internal:1830",
-    "ImGuiFocusedFlags_": "imgui:1497",
-    "ImGuiFreeTypeLoaderFlags_": "imgui_freetype:29",
-    "ImGuiGroupData": "imgui_internal:1212",
-    "ImGuiHoveredFlagsPrivate_": "imgui_internal:1056",
-    "ImGuiHoveredFlags_": "imgui:1511",
-    "ImGuiIDStackTool": "imgui_internal:2410",
-    "ImGuiIO": "imgui:2517",
-    "ImGuiInputEvent": "imgui_internal:1601",
-    "ImGuiInputEventAppFocused": "imgui_internal:1599",
-    "ImGuiInputEventKey": "imgui_internal:1597",
-    "ImGuiInputEventMouseButton": "imgui_internal:1595",
-    "ImGuiInputEventMousePos": "imgui_internal:1593",
-    "ImGuiInputEventMouseViewport": "imgui_internal:1596",
-    "ImGuiInputEventMouseWheel": "imgui_internal:1594",
-    "ImGuiInputEventText": "imgui_internal:1598",
-    "ImGuiInputEventType": "imgui_internal:1569",
-    "ImGuiInputFlagsPrivate_": "imgui_internal:1668",
-    "ImGuiInputFlags_": "imgui:1770",
-    "ImGuiInputSource": "imgui_internal:1582",
-    "ImGuiInputTextCallbackData": "imgui:2787",
-    "ImGuiInputTextDeactivatedState": "imgui_internal:1250",
-    "ImGuiInputTextFlagsPrivate_": "imgui_internal:1064",
-    "ImGuiInputTextFlags_": "imgui:1315",
-    "ImGuiInputTextState": "imgui_internal:1273",
-    "ImGuiItemFlagsPrivate_": "imgui_internal:1004",
-    "ImGuiItemFlags_": "imgui:1288",
-    "ImGuiItemStatusFlags_": "imgui_internal:1028",
-    "ImGuiKey": "imgui:1641",
-    "ImGuiKeyData": "imgui:2509",
-    "ImGuiKeyOwnerData": "imgui_internal:1655",
-    "ImGuiKeyRoutingData": "imgui_internal:1629",
-    "ImGuiKeyRoutingTable": "imgui_internal:1643",
-    "ImGuiLastItemData": "imgui_internal:1430",
-    "ImGuiLayoutType_": "imgui_internal:1166",
-    "ImGuiListClipper": "imgui:3028",
-    "ImGuiListClipperData": "imgui_internal:1725",
-    "ImGuiListClipperFlags_": "imgui:3002",
-    "ImGuiListClipperRange": "imgui_internal:1712",
-    "ImGuiLocEntry": "imgui_internal:2294",
-    "ImGuiLocKey": "imgui_internal:2273",
-    "ImGuiLogFlags_": "imgui_internal:1173",
-    "ImGuiMenuColumns": "imgui_internal:1231",
-    "ImGuiMetricsConfig": "imgui_internal:2364",
-    "ImGuiMouseButton_": "imgui:2065",
-    "ImGuiMouseCursor_": "imgui:2075",
-    "ImGuiMouseSource": "imgui:2096",
-    "ImGuiMultiSelectFlags_": "imgui:3197",
-    "ImGuiMultiSelectIO": "imgui:3233",
-    "ImGuiMultiSelectState": "imgui_internal:1993",
-    "ImGuiMultiSelectTempData": "imgui_internal:1966",
-    "ImGuiNavItemData": "imgui_internal:1813",
-    "ImGuiNavLayer": "imgui_internal:1805",
-    "ImGuiNavMoveFlags_": "imgui_internal:1783",
-    "ImGuiNavRenderCursorFlags_": "imgui_internal:1768",
-    "ImGuiNextItemData": "imgui_internal:1408",
-    "ImGuiNextItemDataFlags_": "imgui_internal:1397",
-    "ImGuiNextWindowData": "imgui_internal:1365",
-    "ImGuiNextWindowDataFlags_": "imgui_internal:1345",
-    "ImGuiOldColumnData": "imgui_internal:1898",
-    "ImGuiOldColumnFlags_": "imgui_internal:1878",
-    "ImGuiOldColumns": "imgui_internal:1908",
-    "ImGuiOnceUponAFrame": "imgui:2891",
-    "ImGuiPackedDate": "imgui_internal:852",
-    "ImGuiPayload": "imgui:2856",
-    "ImGuiPlatformIO": "imgui:4253",
-    "ImGuiPlatformImeData": "imgui:4385",
-    "ImGuiPlatformMonitor": "imgui:4375",
-    "ImGuiPlotType": "imgui_internal:1192",
-    "ImGuiPopupData": "imgui_internal:1526",
-    "ImGuiPopupFlags_": "imgui:1406",
-    "ImGuiPopupPositionPolicy": "imgui_internal:1518",
-    "ImGuiPtrOrIndex": "imgui_internal:1495",
-    "ImGuiScrollFlags_": "imgui_internal:1754",
-    "ImGuiSelectableFlagsPrivate_": "imgui_internal:1112",
-    "ImGuiSelectableFlags_": "imgui:1425",
-    "ImGuiSelectionBasicStorage": "imgui:3279",
-    "ImGuiSelectionExternalStorage": "imgui:3302",
-    "ImGuiSelectionRequest": "imgui:3253",
-    "ImGuiSelectionRequestType": "imgui:3245",
-    "ImGuiSeparatorFlags_": "imgui_internal:1134",
-    "ImGuiSettingsCleanupArgs": "imgui_internal:2241",
-    "ImGuiSettingsHandler": "imgui_internal:2252",
-    "ImGuiShrinkWidthItem": "imgui_internal:1488",
-    "ImGuiSizeCallbackData": "imgui:2824",
-    "ImGuiSliderFlagsPrivate_": "imgui_internal:1105",
-    "ImGuiSliderFlags_": "imgui:2046",
-    "ImGuiSortDirection": "imgui:1628",
-    "ImGuiStackLevelInfo": "imgui_internal:2385",
-    "ImGuiStorage": "imgui:2964",
-    "ImGuiStoragePair": "imgui:2947",
-    "ImGuiStyle": "imgui:2394",
-    "ImGuiStyleMod": "imgui_internal:963",
-    "ImGuiStyleVarInfo": "imgui_internal:947",
-    "ImGuiStyleVar_": "imgui:1922",
-    "ImGuiTabBar": "imgui_internal:3121",
-    "ImGuiTabBarFlagsPrivate_": "imgui_internal:3083",
-    "ImGuiTabBarFlags_": "imgui:1458",
-    "ImGuiTabItem": "imgui_internal:3101",
-    "ImGuiTabItemFlagsPrivate_": "imgui_internal:3091",
-    "ImGuiTabItemFlags_": "imgui:1482",
-    "ImGuiTable": "imgui_internal:3290",
-    "ImGuiTableBgTarget_": "imgui:2248",
-    "ImGuiTableCellData": "imgui_internal:3258",
-    "ImGuiTableColumn": "imgui_internal:3175",
-    "ImGuiTableColumnFlags_": "imgui:2195",
-    "ImGuiTableColumnSettings": "imgui_internal:3448",
-    "ImGuiTableColumnSortSpecs": "imgui:2270",
-    "ImGuiTableFlags_": "imgui:2142",
-    "ImGuiTableHeaderData": "imgui_internal:3267",
-    "ImGuiTableInstanceData": "imgui_internal:3277",
-    "ImGuiTableReconcileColumnData": "imgui_internal:3241",
-    "ImGuiTableRowFlags_": "imgui:2233",
-    "ImGuiTableSettings": "imgui_internal:3474",
-    "ImGuiTableSortSpecs": "imgui:2260",
-    "ImGuiTableTempData": "imgui_internal:3419",
-    "ImGuiTextBuffer": "imgui:2926",
-    "ImGuiTextFilter": "imgui:2899",
-    "ImGuiTextFlags_": "imgui_internal:1152",
-    "ImGuiTextIndex": "imgui_internal:837",
-    "ImGuiTextRange": "imgui:2909",
-    "ImGuiTooltipFlags_": "imgui_internal:1158",
-    "ImGuiTreeNodeFlagsPrivate_": "imgui_internal:1125",
-    "ImGuiTreeNodeFlags_": "imgui:1367",
-    "ImGuiTreeNodeStackData": "imgui_internal:1449",
-    "ImGuiTypingSelectFlags_": "imgui_internal:1841",
-    "ImGuiTypingSelectRequest": "imgui_internal:1849",
-    "ImGuiTypingSelectState": "imgui_internal:1860",
-    "ImGuiViewport": "imgui:4164",
-    "ImGuiViewportFlags_": "imgui:4136",
-    "ImGuiViewportP": "imgui_internal:2169",
-    "ImGuiWindow": "imgui_internal:2928",
-    "ImGuiWindowBgClickFlags_": "imgui_internal:1339",
-    "ImGuiWindowClass": "imgui:2839",
-    "ImGuiWindowDockStyle": "imgui_internal:2147",
-    "ImGuiWindowDockStyleCol": "imgui_internal:2132",
-    "ImGuiWindowFlags_": "imgui:1216",
-    "ImGuiWindowRefreshFlags_": "imgui_internal:1330",
-    "ImGuiWindowSettings": "imgui_internal:2221",
-    "ImGuiWindowStackData": "imgui_internal:1479",
-    "ImGuiWindowTempData": "imgui_internal:2870",
-    "ImRect": "imgui_internal:602",
-    "ImTextureData": "imgui:3698",
-    "ImTextureFormat": "imgui:3666",
-    "ImTextureRect": "imgui:3685",
-    "ImTextureRef": "imgui:372",
-    "ImTextureStatus": "imgui:3673",
-    "ImVec1": "imgui_internal:576",
-    "ImVec2": "imgui:300",
-    "ImVec2i": "imgui_internal:584",
-    "ImVec2ih": "imgui_internal:592",
-    "ImVec4": "imgui:313",
-    "ImWcharClass": "imgui_internal:463",
+    "ImBitVector": "imgui_internal:712",
+    "ImColor": "imgui:3182",
+    "ImDrawChannel": "imgui:3428",
+    "ImDrawCmd": "imgui:3384",
+    "ImDrawCmdHeader": "imgui:3420",
+    "ImDrawData": "imgui:3722",
+    "ImDrawDataBuilder": "imgui_internal:985",
+    "ImDrawFlags_": "imgui:3452",
+    "ImDrawList": "imgui:3541",
+    "ImDrawListSharedData": "imgui_internal:958",
+    "ImDrawListSplitter": "imgui:3436",
+    "ImDrawTextFlags_": "imgui_internal:453",
+    "ImDrawVert": "imgui:3405",
+    "ImFont": "imgui:4157",
+    "ImFontAtlas": "imgui:3956",
+    "ImFontAtlasBuilder": "imgui_internal:4357",
+    "ImFontAtlasFlags_": "imgui:3928",
+    "ImFontAtlasPostProcessData": "imgui_internal:4330",
+    "ImFontAtlasRect": "imgui:3918",
+    "ImFontAtlasRectEntry": "imgui_internal:4322",
+    "ImFontBaked": "imgui:4108",
+    "ImFontConfig": "imgui:3837",
+    "ImFontFlags_": "imgui:4143",
+    "ImFontGlyph": "imgui:3880",
+    "ImFontGlyphRangesBuilder": "imgui:3896",
+    "ImFontLoader": "imgui_internal:4270",
+    "ImFontStackData": "imgui_internal:993",
+    "ImGuiActivateFlags_": "imgui_internal:1804",
+    "ImGuiAxis": "imgui_internal:1237",
+    "ImGuiBackendFlags_": "imgui:1844",
+    "ImGuiBoxSelectState": "imgui_internal:1996",
+    "ImGuiButtonFlagsPrivate_": "imgui_internal:1131",
+    "ImGuiButtonFlags_": "imgui:1996",
+    "ImGuiChildFlags_": "imgui:1278",
+    "ImGuiCol_": "imgui:1861",
+    "ImGuiColorEditFlags_": "imgui:2008",
+    "ImGuiColorMod": "imgui_internal:1015",
+    "ImGuiComboFlags_": "imgui:1465",
+    "ImGuiComboPreviewData": "imgui_internal:1255",
+    "ImGuiCond_": "imgui:2129",
+    "ImGuiConfigFlags_": "imgui:1816",
+    "ImGuiContext": "imgui_internal:2508",
+    "ImGuiContextHook": "imgui_internal:2491",
+    "ImGuiContextHookType": "imgui_internal:2489",
+    "ImGuiDataAuthority_": "imgui_internal:2112",
+    "ImGuiDataTypeInfo": "imgui_internal:1041",
+    "ImGuiDataTypePrivate_": "imgui_internal:1050",
+    "ImGuiDataTypeStorage": "imgui_internal:1035",
+    "ImGuiDataType_": "imgui:1621",
+    "ImGuiDeactivatedItemData": "imgui_internal:1569",
+    "ImGuiDebugAllocEntry": "imgui_internal:2411",
+    "ImGuiDebugAllocInfo": "imgui_internal:2418",
+    "ImGuiDebugItemPathQuery": "imgui_internal:2460",
+    "ImGuiDebugLogFlags_": "imgui_internal:2387",
+    "ImGuiDir": "imgui:1639",
+    "ImGuiDockContext": "imgui_internal:2215",
+    "ImGuiDockNode": "imgui_internal:2128",
+    "ImGuiDockNodeFlagsPrivate_": "imgui_internal:2080",
+    "ImGuiDockNodeFlags_": "imgui:1573",
+    "ImGuiDockNodeState": "imgui_internal:2119",
+    "ImGuiDragDropFlags_": "imgui:1592",
+    "ImGuiErrorRecoveryState": "imgui_internal:1523",
+    "ImGuiFocusRequestFlags_": "imgui_internal:1197",
+    "ImGuiFocusScopeData": "imgui_internal:1893",
+    "ImGuiFocusedFlags_": "imgui:1519",
+    "ImGuiFreeTypeLoaderFlags_": "imgui_freetype:30",
+    "ImGuiGroupData": "imgui_internal:1271",
+    "ImGuiHoveredFlagsPrivate_": "imgui_internal:1114",
+    "ImGuiHoveredFlags_": "imgui:1533",
+    "ImGuiIDStackTool": "imgui_internal:2474",
+    "ImGuiIO": "imgui:2543",
+    "ImGuiInputEvent": "imgui_internal:1664",
+    "ImGuiInputEventAppFocused": "imgui_internal:1662",
+    "ImGuiInputEventKey": "imgui_internal:1660",
+    "ImGuiInputEventMouseButton": "imgui_internal:1658",
+    "ImGuiInputEventMousePos": "imgui_internal:1656",
+    "ImGuiInputEventMouseViewport": "imgui_internal:1659",
+    "ImGuiInputEventMouseWheel": "imgui_internal:1657",
+    "ImGuiInputEventText": "imgui_internal:1661",
+    "ImGuiInputEventType": "imgui_internal:1632",
+    "ImGuiInputFlagsPrivate_": "imgui_internal:1731",
+    "ImGuiInputFlags_": "imgui:1792",
+    "ImGuiInputSource": "imgui_internal:1645",
+    "ImGuiInputTextCallbackData": "imgui:2819",
+    "ImGuiInputTextDeactivatedState": "imgui_internal:1309",
+    "ImGuiInputTextFlagsPrivate_": "imgui_internal:1122",
+    "ImGuiInputTextFlags_": "imgui:1337",
+    "ImGuiInputTextState": "imgui_internal:1332",
+    "ImGuiItemFlagsPrivate_": "imgui_internal:1063",
+    "ImGuiItemFlags_": "imgui:1299",
+    "ImGuiItemStatusFlags_": "imgui_internal:1086",
+    "ImGuiKey": "imgui:1663",
+    "ImGuiKeyData": "imgui:2535",
+    "ImGuiKeyOwnerData": "imgui_internal:1718",
+    "ImGuiKeyRoutingData": "imgui_internal:1692",
+    "ImGuiKeyRoutingTable": "imgui_internal:1706",
+    "ImGuiLastItemData": "imgui_internal:1492",
+    "ImGuiLayoutType_": "imgui_internal:1218",
+    "ImGuiListClipper": "imgui:3071",
+    "ImGuiListClipperData": "imgui_internal:1788",
+    "ImGuiListClipperFlags_": "imgui:3045",
+    "ImGuiListClipperRange": "imgui_internal:1775",
+    "ImGuiLocEntry": "imgui_internal:2358",
+    "ImGuiLocKey": "imgui_internal:2337",
+    "ImGuiLogFlags_": "imgui_internal:1225",
+    "ImGuiMenuColumns": "imgui_internal:1290",
+    "ImGuiMetricsConfig": "imgui_internal:2428",
+    "ImGuiMouseButton_": "imgui:2087",
+    "ImGuiMouseCursor_": "imgui:2097",
+    "ImGuiMouseSource": "imgui:2118",
+    "ImGuiMultiSelectFlags_": "imgui:3240",
+    "ImGuiMultiSelectIO": "imgui:3276",
+    "ImGuiMultiSelectState": "imgui_internal:2056",
+    "ImGuiMultiSelectTempData": "imgui_internal:2029",
+    "ImGuiNavItemData": "imgui_internal:1876",
+    "ImGuiNavLayer": "imgui_internal:1868",
+    "ImGuiNavMoveFlags_": "imgui_internal:1846",
+    "ImGuiNavRenderCursorFlags_": "imgui_internal:1831",
+    "ImGuiNextItemData": "imgui_internal:1470",
+    "ImGuiNextItemDataFlags_": "imgui_internal:1459",
+    "ImGuiNextWindowData": "imgui_internal:1425",
+    "ImGuiNextWindowDataFlags_": "imgui_internal:1405",
+    "ImGuiOldColumnData": "imgui_internal:1961",
+    "ImGuiOldColumnFlags_": "imgui_internal:1941",
+    "ImGuiOldColumns": "imgui_internal:1971",
+    "ImGuiOnceUponAFrame": "imgui:2923",
+    "ImGuiPackedDate": "imgui_internal:892",
+    "ImGuiPayload": "imgui:2888",
+    "ImGuiPlatformIO": "imgui:4348",
+    "ImGuiPlatformImeData": "imgui:4481",
+    "ImGuiPlatformMonitor": "imgui:4471",
+    "ImGuiPlotType": "imgui_internal:1244",
+    "ImGuiPopupData": "imgui_internal:1589",
+    "ImGuiPopupFlags_": "imgui:1428",
+    "ImGuiPopupPositionPolicy": "imgui_internal:1581",
+    "ImGuiPtrOrIndex": "imgui_internal:1558",
+    "ImGuiScrollFlags_": "imgui_internal:1817",
+    "ImGuiSelectableFlagsPrivate_": "imgui_internal:1164",
+    "ImGuiSelectableFlags_": "imgui:1447",
+    "ImGuiSelectionBasicStorage": "imgui:3322",
+    "ImGuiSelectionExternalStorage": "imgui:3345",
+    "ImGuiSelectionRequest": "imgui:3296",
+    "ImGuiSelectionRequestType": "imgui:3288",
+    "ImGuiSeparatorFlags_": "imgui_internal:1186",
+    "ImGuiSettingsCleanupArgs": "imgui_internal:2305",
+    "ImGuiSettingsHandler": "imgui_internal:2316",
+    "ImGuiShrinkWidthItem": "imgui_internal:1551",
+    "ImGuiSizeCallbackData": "imgui:2856",
+    "ImGuiSliderFlagsPrivate_": "imgui_internal:1157",
+    "ImGuiSliderFlags_": "imgui:2068",
+    "ImGuiSortDirection": "imgui:1650",
+    "ImGuiStackLevelInfo": "imgui_internal:2449",
+    "ImGuiStorage": "imgui:2993",
+    "ImGuiStoragePair": "imgui:2976",
+    "ImGuiStyle": "imgui:2416",
+    "ImGuiStyleMod": "imgui_internal:1022",
+    "ImGuiStyleVarInfo": "imgui_internal:1006",
+    "ImGuiStyleVar_": "imgui:1944",
+    "ImGuiTabBar": "imgui_internal:3187",
+    "ImGuiTabBarFlagsPrivate_": "imgui_internal:3149",
+    "ImGuiTabBarFlags_": "imgui:1480",
+    "ImGuiTabItem": "imgui_internal:3167",
+    "ImGuiTabItemFlagsPrivate_": "imgui_internal:3157",
+    "ImGuiTabItemFlags_": "imgui:1504",
+    "ImGuiTable": "imgui_internal:3356",
+    "ImGuiTableBgTarget_": "imgui:2270",
+    "ImGuiTableCellData": "imgui_internal:3324",
+    "ImGuiTableColumn": "imgui_internal:3241",
+    "ImGuiTableColumnFlags_": "imgui:2217",
+    "ImGuiTableColumnSettings": "imgui_internal:3515",
+    "ImGuiTableColumnSortSpecs": "imgui:2292",
+    "ImGuiTableFlags_": "imgui:2164",
+    "ImGuiTableHeaderData": "imgui_internal:3333",
+    "ImGuiTableInstanceData": "imgui_internal:3343",
+    "ImGuiTableReconcileColumnData": "imgui_internal:3307",
+    "ImGuiTableRowFlags_": "imgui:2255",
+    "ImGuiTableSettings": "imgui_internal:3541",
+    "ImGuiTableSortSpecs": "imgui:2282",
+    "ImGuiTableTempData": "imgui_internal:3486",
+    "ImGuiTextBuffer": "imgui:2955",
+    "ImGuiTextFilter": "imgui:2932",
+    "ImGuiTextFilterItem": "imgui_internal:880",
+    "ImGuiTextFlags_": "imgui_internal:1204",
+    "ImGuiTextIndex": "imgui_internal:867",
+    "ImGuiTooltipFlags_": "imgui_internal:1210",
+    "ImGuiTreeNodeFlagsPrivate_": "imgui_internal:1177",
+    "ImGuiTreeNodeFlags_": "imgui:1389",
+    "ImGuiTreeNodeStackData": "imgui_internal:1511",
+    "ImGuiTypingSelectFlags_": "imgui_internal:1904",
+    "ImGuiTypingSelectRequest": "imgui_internal:1912",
+    "ImGuiTypingSelectState": "imgui_internal:1923",
+    "ImGuiViewport": "imgui:4259",
+    "ImGuiViewportFlags_": "imgui:4231",
+    "ImGuiViewportP": "imgui_internal:2232",
+    "ImGuiWindow": "imgui_internal:2994",
+    "ImGuiWindowBgClickFlags_": "imgui_internal:1399",
+    "ImGuiWindowClass": "imgui:2871",
+    "ImGuiWindowDockStyle": "imgui_internal:2210",
+    "ImGuiWindowDockStyleCol": "imgui_internal:2195",
+    "ImGuiWindowFlags_": "imgui:1227",
+    "ImGuiWindowRefreshFlags_": "imgui_internal:1390",
+    "ImGuiWindowSettings": "imgui_internal:2285",
+    "ImGuiWindowStackData": "imgui_internal:1541",
+    "ImGuiWindowTempData": "imgui_internal:2936",
+    "ImRect": "imgui_internal:632",
+    "ImTextureData": "imgui:3791",
+    "ImTextureFormat": "imgui:3759",
+    "ImTextureRect": "imgui:3778",
+    "ImTextureRef": "imgui:383",
+    "ImTextureStatus": "imgui:3766",
+    "ImVec1": "imgui_internal:606",
+    "ImVec2": "imgui:311",
+    "ImVec2i": "imgui_internal:614",
+    "ImVec2ih": "imgui_internal:622",
+    "ImVec4": "imgui:324",
+    "ImWcharClass": "imgui_internal:465",
     "STB_TexteditState": "imstb_textedit:342",
     "StbTexteditRow": "imstb_textedit:389",
     "StbUndoRecord": "imstb_textedit:324",
     "StbUndoState": "imstb_textedit:333",
-    "stbrp_context_opaque": "imgui_internal:4282"
+    "stbrp_context_opaque": "imgui_internal:4354"
   },
   "nonPOD": {
     "ImBitArray": true,
@@ -6708,7 +6757,7 @@
     "ImGuiTableTempData": true,
     "ImGuiTextBuffer": true,
     "ImGuiTextFilter": true,
-    "ImGuiTextRange": true,
+    "ImGuiTextFilterItem": true,
     "ImGuiTypingSelectState": true,
     "ImGuiViewport": true,
     "ImGuiViewportP": true,
@@ -6964,14 +7013,11 @@
     "ImGuiTextBuffer": {
       "above": "// Helper: Growable text buffer for logging/accumulating text\n// (this could be called 'ImGuiTextBuilder' / 'ImGuiStringBuilder')"
     },
-    "ImGuiTextFilter": {
-      "above": "// Helper: Parse and apply text filters. In format \"aaaaa[,bbbb][,ccccc]\""
+    "ImGuiTextFilterItem": {
+      "above": "// [Internal] Types"
     },
     "ImGuiTextIndex": {
       "above": "// Helper: ImGuiTextIndex\n// Maintain a line index for a text buffer. This is a strong candidate to be moved into the public API."
-    },
-    "ImGuiTextRange": {
-      "above": "    // [Internal]"
     },
     "ImGuiTreeNodeStackData": {
       "above": "// Store data emitted by TreeNode() for usage by TreePop()\n// - To implement ImGuiTreeNodeFlags_NavLeftJumpsToParent: store the minimum amount of data\n//   which we can't infer in TreePop(), to perform the equivalent of NavApplyItemToResult().\n//   Only stored when the node is a potential candidate for landing on a Left arrow jump."
@@ -7001,7 +7047,7 @@
       "above": "// Windows data saved in imgui.ini file\n// Because we never destroy or rename ImGuiWindowSettings, we can store the names in a separate buffer easily.\n// (this is designed to be stored in a ImChunkStream buffer, with the variable-length Name following our structure)"
     },
     "ImGuiWindowStackData": {
-      "above": "// Data saved for each window pushed into the stack"
+      "above": "// Storage for each window pushed into the stack."
     },
     "ImGuiWindowTempData": {
       "above": "// Transient per-window data, reset at the beginning of the frame. This used to be called ImGuiDrawContext, hence the DC variable name in ImGuiWindow.\n// (That's theory, in practice the delimitation between ImGuiWindow and ImGuiWindowTempData is quite tenuous and could be reconsidered..)\n// (This doesn't need a constructor because we zero-clear it as part of ImGuiWindow and all frame-temporary data are setup on Begin)"
@@ -7251,10 +7297,10 @@
       },
       {
         "comment": {
-          "sameline": "// Flags, you may poke into these to adjust anti-aliasing settings per-primitive."
+          "sameline": "// Current flags for drawing primitives.  Alter with PushDrawFlag()/PopDrawFlags() to adjust defaults to a given scope."
         },
         "name": "Flags",
-        "type": "ImDrawListFlags"
+        "type": "ImDrawFlags"
       },
       {
         "comment": {
@@ -7333,10 +7379,32 @@
       },
       {
         "comment": {
+          "sameline": "// [Internal]"
+        },
+        "name": "_DrawFlagsStack",
+        "template_type": "ImDrawFlags,3",
+        "type": "ImSmallStack__ImDrawFlags__3"
+      },
+      {
+        "comment": {
           "sameline": "// [Internal] anti-alias fringe is scaled by this value, this helps to keep things sharp while zooming at vertex buffer content"
         },
         "name": "_FringeScale",
         "type": "float"
+      },
+      {
+        "comment": {
+          "sameline": "// [internal] 1.0 / _FringeScale // FIXME: Consider renaming to _PixelDensity."
+        },
+        "name": "_InvFringeScale",
+        "type": "float"
+      },
+      {
+        "comment": {
+          "sameline": "// [Internal] true if 1/_FringeScale is a whole number, used to select fast path for rendering"
+        },
+        "name": "_FringeScaleIsInteger",
+        "type": "bool"
       },
       {
         "comment": {
@@ -7356,9 +7424,16 @@
       },
       {
         "comment": {
-          "sameline": "// UV of anti-aliased lines in the atlas (== FontAtlas->TexUvLines)"
+          "sameline": "// UV of anti-aliased lines in the atlas (== FontAtlas->Builder->TexUvLines)"
         },
         "name": "TexUvLines",
+        "type": "const ImVec4*"
+      },
+      {
+        "comment": {
+          "sameline": "// UV of rounded corner (== FontAtlas->Builder->TexUvCorners)"
+        },
+        "name": "TexUvCorners",
         "type": "const ImVec4*"
       },
       {
@@ -7377,7 +7452,7 @@
       },
       {
         "comment": {
-          "sameline": "// Current font size (used for for simplified AddText overload)"
+          "sameline": "// Current font size (used for simplified AddText overload)"
         },
         "name": "FontSize",
         "type": "float"
@@ -7393,7 +7468,7 @@
         "comment": {
           "sameline": "// Tessellation tolerance when using PathBezierCurveTo()"
         },
-        "name": "CurveTessellationTol",
+        "name": "CurveTessellationMaxError",
         "type": "float"
       },
       {
@@ -7405,17 +7480,10 @@
       },
       {
         "comment": {
-          "sameline": "// Initial scale to apply to AA fringe"
-        },
-        "name": "InitialFringeScale",
-        "type": "float"
-      },
-      {
-        "comment": {
           "sameline": "// Initial flags at the beginning of the frame (it is possible to alter flags on a per-drawlist basis afterwards)"
         },
-        "name": "InitialFlags",
-        "type": "ImDrawListFlags"
+        "name": "InitialDrawFlags",
+        "type": "ImDrawFlags"
       },
       {
         "comment": {
@@ -7452,7 +7520,7 @@
           "above": "    // Lookup tables",
           "sameline": "// Sample points on the quarter of the circle."
         },
-        "name": "ArcFastVtx[48]",
+        "name": "ArcFastVtx[(48)]",
         "size": 48,
         "type": "ImVec2"
       },
@@ -7594,7 +7662,7 @@
       },
       {
         "comment": {
-          "sameline": "// 16    //     // Remapping pairs when using AddRemapChar(), otherwise empty."
+          "sameline": "// 16    //     // Remapping pairs when using AddRemapCodepointXXX()."
         },
         "name": "RemapPairs",
         "type": "ImGuiStorage"
@@ -7618,7 +7686,7 @@
       },
       {
         "comment": {
-          "sameline": "// FIXME: Should be called \"TexPackPadding\". Padding between glyphs within texture in pixels. Defaults to 1. If your rendering method doesn't rely on bilinear filtering you may set this to 0 (will also need to set AntiAliasedLinesUseTex = false)."
+          "sameline": "// FIXME: Should be called \"TexPackPadding\". Padding between glyphs within texture in pixels. Defaults to 1. If your rendering method never relies on bilinear filtering you may set this to 0."
         },
         "name": "TexGlyphPadding",
         "type": "int"
@@ -7738,14 +7806,6 @@
         "name": "Sources",
         "template_type": "ImFontConfig",
         "type": "ImVector_ImFontConfig"
-      },
-      {
-        "comment": {
-          "sameline": "// UVs for baked anti-aliased lines"
-        },
-        "name": "TexUvLines[(32)+1]",
-        "size": 33,
-        "type": "ImVec4"
       },
       {
         "comment": {
@@ -7947,6 +8007,30 @@
       {
         "name": "PackIdLinesTexData",
         "type": "ImFontAtlasRectId"
+      },
+      {
+        "name": "PackIdLineFractTexData",
+        "type": "ImFontAtlasRectId"
+      },
+      {
+        "name": "PackIdCornersTexData",
+        "type": "ImFontAtlasRectId"
+      },
+      {
+        "comment": {
+          "above": "    // Cached UV coordinates",
+          "sameline": "// UVs for baked anti-aliased lines (u0, u1, v, 1/thickness)"
+        },
+        "name": "1)*(4)+1)]",
+        "type": "ImVec4 TexUvLines[(32)+1+(((4)-"
+      },
+      {
+        "comment": {
+          "sameline": "// UVs for baked anti-aliased corners (0= fill, 1> stroke thickness)"
+        },
+        "name": "TexUvCorners[(16)*(4)]",
+        "size": 64,
+        "type": "ImVec4"
       }
     ],
     "ImFontAtlasPostProcessData": [
@@ -8512,8 +8596,15 @@
         "type": "void(*)(ImFontAtlas* atlas,ImFontConfig* src)"
       },
       {
+        "comment": {
+          "sameline": "// Required"
+        },
+        "name": "FontSrcGetGlyphIndexFromCodepoint",
+        "type": "int(*)(ImFontAtlas* atlas,ImFontConfig* src,ImWchar codepoint)"
+      },
+      {
         "name": "FontSrcContainsGlyph",
-        "type": "bool(*)(ImFontAtlas* atlas,ImFontConfig* src,ImWchar codepoint)"
+        "type": "bool(*)(ImFontAtlas* atlas,ImFontConfig* src,int glyph_index)"
       },
       {
         "name": "FontBakedInit",
@@ -8524,8 +8615,11 @@
         "type": "void(*)(ImFontAtlas* atlas,ImFontConfig* src,ImFontBaked* baked,void* loader_data_for_baked_src)"
       },
       {
+        "comment": {
+          "sameline": "// Required"
+        },
         "name": "FontBakedLoadGlyph",
-        "type": "bool(*)(ImFontAtlas* atlas,ImFontConfig* src,ImFontBaked* baked,void* loader_data_for_baked_src,ImWchar codepoint,ImFontGlyph* out_glyph,float* out_advance_x)"
+        "type": "bool(*)(ImFontAtlas* atlas,ImFontConfig* src,ImFontBaked* baked,void* loader_data_for_baked_src,int glyph_index,ImFontGlyph* out_glyph,float* out_advance_x)"
       },
       {
         "comment": {
@@ -8686,8 +8780,22 @@
         "type": "float"
       },
       {
+        "name": "BackupWorkRectMaxX",
+        "type": "float"
+      },
+      {
+        "name": "BackupContentRectMaxX",
+        "type": "float"
+      },
+      {
+        "bitfield": "8",
         "name": "BackupLayout",
         "type": "ImGuiLayoutType"
+      },
+      {
+        "bitfield": "2",
+        "name": "WithinPreview",
+        "type": "int"
       }
     ],
     "ImGuiContext": [
@@ -8814,7 +8922,7 @@
         "comment": {
           "sameline": "// Current font density. Used by all calls to GetFontBaked()."
         },
-        "name": "FontRasterizerDensity",
+        "name": "CurrentPixelDensity",
         "type": "float"
       },
       {
@@ -9004,6 +9112,13 @@
       {
         "comment": {
           "above": "    // Item/widgets state and tracking information",
+          "sameline": "// Value replacement when displaying a mixed value. Default to \"-\" (Unreal uses \"Multiple values\", Unity uses \"---\"). May be interpreted as a format: must not contain single %. Set to NULL to display original value."
+        },
+        "name": "MixedValueLabel",
+        "type": "const char*"
+      },
+      {
+        "comment": {
           "sameline": "// Set when we detect multiple items with the same identifier"
         },
         "name": "DebugDrawIdConflictsId",
@@ -9778,6 +9893,13 @@
           "sameline": "// Copy of ImGuiNavMoveFlags_IsTabbing. Maybe we should store whole flags."
         },
         "name": "NavJustMovedToIsTabbing",
+        "type": "bool"
+      },
+      {
+        "comment": {
+          "sameline": "// Copy of ImGuiNavMoveFlags_IsTabbing. Maybe we should store whole flags."
+        },
+        "name": "NavJustMovedToIsInit",
         "type": "bool"
       },
       {
@@ -11801,6 +11923,14 @@
       },
       {
         "comment": {
+          "above": "    // Option to compare < 1.93.0 rendering details vs 1.93.0 rendering details. (#9504)\n    // - Equivalent to calling PushDrawFlag(ImDrawFlags_StrokeLegacy,true) on every draw list instances.\n    // - Suggested use, e.g. io.ConfigDebugDrawListDefaultsToStrokeLegacy = io.KeyShift; // Map to SHIFT modifier\n    // - Also see our interactive testbed: https://www.dearimgui.com/docs/drawlist_v193",
+          "sameline": "// false // Default all ImDrawList to ImDrawFlags_StrokeLegacy mode, mimicking pre-1.93.0 rendering."
+        },
+        "name": "ConfigDebugDrawListDefaultsToStrokeLegacy",
+        "type": "bool"
+      },
+      {
+        "comment": {
           "above": "    // Nowadays those would be stored in ImGuiPlatformIO but we are leaving them here for legacy reasons.\n    // Optional: Platform/Renderer backend name (informational only! will be displayed in About Window) + User data for backend/wrappers to store their own stuff.",
           "sameline": "// = NULL"
         },
@@ -12565,6 +12695,10 @@
           "sameline": "// edited this frame"
         },
         "name": "EditedThisFrame",
+        "type": "bool"
+      },
+      {
+        "name": "ValidatedThisFrame",
         "type": "bool"
       },
       {
@@ -13397,13 +13531,24 @@
       },
       {
         "comment": {
-          "sameline": "// Only honored by BeginTable()"
+          "sameline": "// Flags to set. Use SetNextWindowFlags()!"
         },
-        "name": "WindowFlags",
+        "name": "WindowFlagsSet",
         "type": "ImGuiWindowFlags"
       },
       {
-        "name": "ChildFlags",
+        "name": "WindowFlagsClear",
+        "type": "ImGuiWindowFlags"
+      },
+      {
+        "comment": {
+          "sameline": "// Flags to set. Use SetNextWindowChildFlags()."
+        },
+        "name": "ChildFlagsSet",
+        "type": "ImGuiChildFlags"
+      },
+      {
+        "name": "ChildFlagsClear",
         "type": "ImGuiChildFlags"
       },
       {
@@ -13759,6 +13904,13 @@
           "sameline": "// Request backend to set texture sampling to Nearest/Point."
         },
         "name": "DrawCallback_SetSamplerNearest",
+        "type": "ImDrawCallback"
+      },
+      {
+        "comment": {
+          "sameline": "// Request backend to use sampler associated to texture - only available in some backends: OpenGL2/3 and SDLRenderer3."
+        },
+        "name": "DrawCallback_SetSamplerFromTex",
         "type": "ImDrawCallback"
       },
       {
@@ -14890,30 +15042,31 @@
       },
       {
         "comment": {
-          "sameline": "// Enable anti-aliased lines/borders. Disable if you are really tight on CPU/GPU. Latched at the beginning of the frame (copied to ImDrawList)."
+          "above": "    // Rendering & Tessellation",
+          "sameline": "// Enable anti-aliased lines/borders. Used at the beginning of the frame to set ImDrawFlags_AALines in all draw-lists."
         },
         "name": "AntiAliasedLines",
         "type": "bool"
       },
       {
         "comment": {
-          "sameline": "// Enable anti-aliased lines/borders using textures where possible. Require backend to render with bilinear filtering (NOT point/nearest filtering). Latched at the beginning of the frame (copied to ImDrawList)."
+          "sameline": "// Enable anti-aliased lines/borders ends. Nicer for thick lines but more expensive. Used at the beginning of the frame to set ImDrawFlags_AALineEnds in all draw-lists."
         },
-        "name": "AntiAliasedLinesUseTex",
+        "name": "AntiAliasedLineEnds",
         "type": "bool"
       },
       {
         "comment": {
-          "sameline": "// Enable anti-aliased edges around filled shapes (rounded rectangles, circles, etc.). Disable if you are really tight on CPU/GPU. Latched at the beginning of the frame (copied to ImDrawList)."
+          "sameline": "// Enable anti-aliased edges around filled shapes (rounded rectangles, circles, etc.). Used at the beginning of the frame to set ImDrawFlags_AAFill in all draw-lists."
         },
         "name": "AntiAliasedFill",
         "type": "bool"
       },
       {
         "comment": {
-          "sameline": "// Tessellation tolerance when using PathBezierCurveTo() without a specific number of segments. Decrease for highly tessellated curves (higher quality, more polygons), increase to reduce quality."
+          "sameline": "// Maximum error (in pixels) when using PathBezierCurveTo() without a specific number of segments. Decrease for highly tessellated curves (higher quality, more polygons), increase to reduce quality."
         },
-        "name": "CurveTessellationTol",
+        "name": "CurveTessellationMaxError",
         "type": "float"
       },
       {
@@ -15667,8 +15820,11 @@
         "type": "ImVector_ImGuiTableInstanceData"
       },
       {
-        "name": "SortSpecsSingle",
-        "type": "ImGuiTableColumnSortSpecs"
+        "comment": {
+          "sameline": "// Public facing sorts specs, this is what we return in TableGetSortSpecs()"
+        },
+        "name": "SortSpecs",
+        "type": "ImGuiTableSortSpecs"
       },
       {
         "comment": {
@@ -15679,11 +15835,8 @@
         "type": "ImVector_ImGuiTableColumnSortSpecs"
       },
       {
-        "comment": {
-          "sameline": "// Public facing sorts specs, this is what we return in TableGetSortSpecs()"
-        },
-        "name": "SortSpecs",
-        "type": "ImGuiTableSortSpecs"
+        "name": "SortSpecsSingle",
+        "type": "ImGuiTableColumnSortSpecs"
       },
       {
         "name": "SortSpecsCount",
@@ -15894,6 +16047,10 @@
           "sameline": "// Set when inside TableBeginRow()/TableEndRow()."
         },
         "name": "IsInsideRow",
+        "type": "bool"
+      },
+      {
+        "name": "IsNewTable",
         "type": "bool"
       },
       {
@@ -16735,18 +16892,58 @@
     ],
     "ImGuiTextFilter": [
       {
+        "comment": {
+          "above": "    // Members",
+          "sameline": "// User input buffer"
+        },
         "name": "InputBuf[256]",
         "size": 256,
         "type": "char"
       },
       {
-        "name": "Filters",
-        "template_type": "ImGuiTextRange",
-        "type": "ImVector_ImGuiTextRange"
+        "comment": {
+          "sameline": "// [Internal] >= 0 count of leading exclude"
+        },
+        "name": "_CountExclude",
+        "type": "int"
       },
       {
-        "name": "CountGrep",
+        "comment": {
+          "sameline": "// [Internal] Pre-parsed, trimmed, reordered items"
+        },
+        "name": "_Items",
+        "template_type": "ImGuiTextFilterItem",
+        "type": "ImVector_ImGuiTextFilterItem"
+      }
+    ],
+    "ImGuiTextFilterItem": [
+      {
+        "comment": {
+          "sameline": "// Pointer within parent's buffer"
+        },
+        "name": "Begin",
+        "type": "const char*"
+      },
+      {
+        "comment": {
+          "sameline": "// Length of text (non-zero terminated)"
+        },
+        "name": "Len",
         "type": "int"
+      },
+      {
+        "comment": {
+          "sameline": "// Number of consecutive items forming an end chain. >0 when beginning of an AND chain, =0 otherwise."
+        },
+        "name": "CountInclude",
+        "type": "short"
+      },
+      {
+        "comment": {
+          "sameline": "// Storage for multi-sources versions of PassFilter(). Unused by core library."
+        },
+        "name": "MatchIncludesMask",
+        "type": "unsigned short"
       }
     ],
     "ImGuiTextIndex": [
@@ -16761,16 +16958,6 @@
         },
         "name": "EndOffset",
         "type": "int"
-      }
-    ],
-    "ImGuiTextRange": [
-      {
-        "name": "b",
-        "type": "const char*"
-      },
-      {
-        "name": "e",
-        "type": "const char*"
       }
     ],
     "ImGuiTreeNodeStackData": [
@@ -17095,19 +17282,27 @@
       },
       {
         "comment": {
-          "sameline": "// Last frame number the background (0) and foreground (1) draw lists were used"
-        },
-        "name": "BgFgDrawListsLastTimeActive[2]",
-        "size": 2,
-        "type": "float"
-      },
-      {
-        "comment": {
           "sameline": "// Convenience background (0) and foreground (1) draw lists. We use them to draw software mouser cursor when io.MouseDrawCursor is set and to draw most debug overlays."
         },
         "name": "BgFgDrawLists[2]",
         "size": 2,
         "type": "ImDrawList*"
+      },
+      {
+        "comment": {
+          "sameline": "// Last frame the background (0) and foreground (1) draw lists were used."
+        },
+        "name": "BgFgDrawListsLastFrameActive[2]",
+        "size": 2,
+        "type": "int"
+      },
+      {
+        "comment": {
+          "sameline": "// Timestamps for Gc."
+        },
+        "name": "BgFgDrawListsLastTimeActive[2]",
+        "size": 2,
+        "type": "float"
       },
       {
         "name": "DrawDataP",
@@ -18176,6 +18371,10 @@
       {
         "name": "DisabledOverrideReenableAlphaBackup",
         "type": "float"
+      },
+      {
+        "name": "ParentLastComboPreviewRect",
+        "type": "ImRect"
       }
     ],
     "ImGuiWindowTempData": [
@@ -18335,7 +18534,7 @@
       },
       {
         "comment": {
-          "sameline": "// Store whether given depth has ImGuiTreeNodeStackData data. Could be turned into a ImU64 if necessary."
+          "sameline": "// Store whether given depth has ImGuiTreeNodeStackData data. Could be turned into a ImU64 if necessary. Sync any changes with TREE_NODE_MAX_DEPTH/TREE_NODE_GET_DEPTH_MASK!"
         },
         "name": "TreeHasStackDataDepthMask",
         "type": "ImU32"
@@ -18896,6 +19095,19 @@
         "type": "ImPoolIdx"
       }
     ],
+    "ImSmallStack_": [
+      {
+        "comment": {
+          "sameline": "// FIXME: should evolve into using heap, e.g union  with T* HeapData + add SZ_T Capacity."
+        },
+        "name": "LocalData[Capacity]",
+        "type": "T"
+      },
+      {
+        "name": "Size",
+        "type": "SZ_T"
+      }
+    ],
     "ImSpan": [
       {
         "name": "Data",
@@ -18970,6 +19182,9 @@
       "ImGuiTabBar": true,
       "ImGuiTable": true
     },
+    "ImSmallStack_": {
+      "ImDrawFlags,3": true
+    },
     "ImSpan": {
       "ImGuiTableCellData": true,
       "ImGuiTableColumn": true,
@@ -19026,7 +19241,7 @@
       "ImGuiTableInstanceData": true,
       "ImGuiTableReconcileColumnData": true,
       "ImGuiTableTempData": true,
-      "ImGuiTextRange": true,
+      "ImGuiTextFilterItem": true,
       "ImGuiTreeNodeStackData": true,
       "ImGuiViewport*": true,
       "ImGuiViewportP*": true,
@@ -19053,6 +19268,7 @@
     "ImBitArray": "int BITCOUNT, int OFFSET = 0",
     "ImChunkStream": "T",
     "ImPool": "T",
+    "ImSmallStack_": "typename T, int Capacity, typename SZ_T = ImU16",
     "ImSpan": "T",
     "ImSpanAllocator": "int CHUNKS",
     "ImStableVector": "typename T, int BLOCKSIZE",
